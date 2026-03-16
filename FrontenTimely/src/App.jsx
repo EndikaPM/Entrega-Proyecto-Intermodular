@@ -9,6 +9,7 @@ import Navigation from './Components/Navigation.jsx';
 
 // Importar páginas
 import Home from './Pages/Login.jsx';
+import Register from './Pages/Register.jsx';
 import Dashboard from './Pages/Dasboard.jsx';
 
 /**
@@ -37,7 +38,7 @@ function AppLayout() {
   const [modoOscuro, setModoOscuro] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const location = useLocation();
-  const mostrarLayoutPrivado = location.pathname !== '/';
+  const mostrarLayoutPrivado = location.pathname !== '/' && location.pathname !== '/register';
 
   return (
     <div className={`app ${modoOscuro ? 'modo-oscuro' : 'modo-claro'}`}>
@@ -68,6 +69,9 @@ function AppLayout() {
             path="/"
             render={() => <Home onLoginSuccess={() => setIsAuthenticated(true)} />}
           />
+
+          {/* Ruta Registro - Página de registro */}
+          <Route exact path="/register" component={Register} />
 
           {/* Ruta Dashboard - Pantalla principal */}
           <Route

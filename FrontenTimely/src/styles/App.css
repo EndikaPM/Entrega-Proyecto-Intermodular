@@ -1,5 +1,5 @@
 /* ========================================
-   GLOBAL STYLES & CSS VARIABLES
+    GLOBAL STYLES & CSS VARIABLES
    ======================================== */
 
 /* Variables para modo oscuro */
@@ -31,6 +31,7 @@
 
 /* Estilos del contenedor principal */
 .app {
+    width: 100%;
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
@@ -41,6 +42,7 @@
 }
 
 .main-container {
+    width: 100%;
     /* Este es el contenedor donde cambian las páginas */
     /* Las páginas individuales controlan su propio layout */
 }

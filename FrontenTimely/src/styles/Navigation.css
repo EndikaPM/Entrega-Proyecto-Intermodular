@@ -35,3 +35,20 @@
     background: linear-gradient(135deg, #1f8a70 0%, #126782 100%);
     color: white;
 }
+
+/* Botón de logout con estilo de link */
+.logout-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background: var(--bg-hover);
+    color: #1f8a70;
+}

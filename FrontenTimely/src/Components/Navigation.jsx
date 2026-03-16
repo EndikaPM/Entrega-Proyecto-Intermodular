@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import AuthService from '../Services/AuthService';
 import '../styles/Navigation.css'
 
 /**
@@ -14,12 +15,23 @@ import '../styles/Navigation.css'
  * - Dashboard: Panel principal (fichar + tareas)
  * - Más enlaces según necesites...
  */
-function Navigation() {
+function Navigation({onLogout}) {
+
+    const history = useHistory();
+
+    const handleLogout = () => {
+        AuthService.logout(); // Limpia el token y datos del usuario
+        if (onLogout) {
+            onLogout(); // Notifica al componente padre (App) que el usuario ha cerrado sesión
+        }
+        history.push('/'); // Redirige al login
+    };
+
     return (
         <nav className="navigation">
             <div className="navbar-nav">
-                <Link to="/" className="nav-link">Log Out</Link>
-            
+                <button onClick={handleLogout} className="nav-link logout-button">Log Out</button>
+                <Link to="/dashboard" className="nav-link">Dashboard</Link>
                 {/* Puedes agregar más enlaces aquí */}
                 {/* 
                 <Link to="/perfil" className="nav-link">

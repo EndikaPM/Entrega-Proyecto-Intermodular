@@ -74,9 +74,34 @@ const isAuthenticated = () => {
     return getCurrentUser() !== null;
 };
 
+/**
+ * Registra un nuevo usuario.
+ * 
+ * @param {Object} datos - Objeto con los datos del usuario
+ * @returns {Promise} Promesa con la respuesta del servidor
+ * 
+ * Ejemplo de uso:
+ * const resultado = await AuthService.register({
+ *     nombre: 'Juan',
+ *     apellido: 'García',
+ *     email: 'juan@empresa.com',
+ *     contrasena: '123456',
+ *     dni: '12345678A'
+ * });
+ */
+const register = async (datos) => {
+    try {
+        const response = await axios.post(`${API_URL}register`, datos);
+        return response.data;
+    } catch (error) {
+        throw error.response?.data?.error || 'Error al registrar. Intenta de nuevo.';
+    }
+};
+
 // Exportamos las funciones para usarlas en otros componentes
 const AuthService = {
     login,
+    register,
     logout,
     getCurrentUser,
     isAuthenticated

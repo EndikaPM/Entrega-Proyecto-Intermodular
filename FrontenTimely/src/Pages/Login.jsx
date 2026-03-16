@@ -142,7 +142,7 @@ function Login({ onLoginSuccess }) {
                     <button type="submit" className="login-submit" disabled={cargando}>
                         {cargando ? 'Iniciando sesión...' : 'Entrar'}
                     </button>
-                    <a className="registrar" href="#">¿No tienes cuenta? Regístrate</a>
+                    <a className="registrar" href="/register">¿No tienes cuenta? Regístrate</a>
                 </form>
             </section>
         </div>
