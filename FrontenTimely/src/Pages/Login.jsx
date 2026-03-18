@@ -19,7 +19,7 @@ import AuthService from '../Services/AuthService.js'
 
 function Login({ onLoginSuccess }) {
     const history = useHistory()
-    const [credenciales, setCredenciales] = React.useState({
+    const [credenciales, setCredenciales] = useState({
         email: '',
         password: ''
     })

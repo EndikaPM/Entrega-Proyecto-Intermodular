@@ -1,48 +1,229 @@
-# Entrega-Proyecto-Intermodular
-# 🕐 Timely - Control de Jornada y Chat Interno
- 
-> Aplicación web para gestionar tu jornada laboral y comunicarte con tu equipo en tiempo real.
- 
+# 🕐 Timely - Sistema de Control de Jornada Laboral
+
+
 ## 📋 Descripción
- 
-**Timely** es una aplicación desarrollada en React que combina dos funcionalidades esenciales para la productividad laboral:
- 
-1. **Control de Jornada Laboral**: Registra tu entrada y salida del trabajo de forma sencilla con un solo clic.
-2. **Chat Interno**: Comunícate con tu equipo mediante un sistema de mensajería integrado en tiempo real.
- 
-La aplicación está diseñada para ser intuitiva, rápida y ofrecer una experiencia de usuario fluida, con soporte para modo oscuro y claro.
- 
+
+**Timely** es una aplicación web para la gestión y control de jornadas laborales. Permite a los empleados fichar entrada y salida, gestionar sus datos personales y visualizar su historial de trabajo. Diseñada para empresas que buscan digitalizar y simplificar el control horario de sus trabajadores.
+
 ---
- 
-## ✨ Características Principales
- 
-### 🎯 Control de Jornada
-- ✅ Fichaje de entrada/salida con un solo botón
-- ⏱️ Registro automático de fecha y hora
-- 📊 Visualización del histórico de fichajes
- 
-### 💬 Chat Interno
-- 💬 Mensajería en tiempo real
-- 📝 Historial de conversaciones
-- 🔄 Sincronización instantánea
- 
-### 🎨 Interfaz
-- 🌓 Modo oscuro/claro
-- 📱 Diseño responsive
-- 🎯 UI/UX moderna y minimalista
- 
----
- 
+
 ## 🛠️ Tecnologías Utilizadas
- 
-### Frontend
-- **React** - Biblioteca principal para construir la UI
-- **React Router DOM** - Gestión de rutas y navegación
-- **CSS3** - Estilos con variables CSS para temas
-- **Axios** - Cliente HTTP para comunicación con el backend
- 
-### Backend 
-- **WebSocket / Socket.io** - Para el chat en tiempo real
-- **MySql** - Base de datos
- 
+
+### **Frontend**
+- **React** 19.2.4 - Biblioteca de JavaScript para construir interfaces de usuario
+- **Vite** - Herramienta de desarrollo rápida para aplicaciones React
+- **React Router DOM** 5.3.3 - Enrutamiento y navegación entre páginas
+- **Axios** 1.13.6 - Cliente HTTP para comunicación con el backend
+- **CSS3** - Estilos personalizados con variables CSS y diseño responsive
+
+### **Backend**
+- **Spring Boot** 4.0.2 - Framework de Java para desarrollo de APIs REST
+- **Spring Data JPA** - Persistencia de datos con ORM
+- **Hibernate** 7.2.1 - Mapeo objeto-relacional
+- **MySQL** 5.5.5+ - Base de datos relacional
+- **Maven** - Gestión de dependencias y construcción del proyecto
+
+### **Herramientas de Desarrollo**
+- **Java** 25
+- **Node.js** (requerido para React)
+- **MySQL Server**
+- **Postman** - Pruebas de API 
+
 ---
+
+## ⚙️ Requisitos Previos
+
+Antes de instalar el proyecto, asegúrate de tener instalado:
+
+- **Java JDK** 17 o superior ([Descargar aquí](https://www.oracle.com/java/technologies/downloads/))
+- **Node.js** 16 o superior ([Descargar aquí](https://nodejs.org/))
+- **MySQL Server** 5.7 o superior ([Descargar aquí](https://dev.mysql.com/downloads/))
+- **Maven** (incluido con la mayoría de IDEs de Java)
+- **Git** (para clonar el repositorio)
+
+---
+
+## 📦 Instrucciones de Instalación
+
+### **1. Clonar el Repositorio**
+```bash
+git clone https://github.com/EndikaPM/Entrega-Proyecto-Intermodular
+```
+
+### **2. Configurar la Base de Datos**
+
+#### Crear la base de datos en MySQL:
+```sql
+CREATE DATABASE Timely;
+USE Timely;
+```
+
+#### Crear las tablas (ejecutar el script SQL):
+Ejecuta el scrip adjunto
+
+### **3. Configurar el Backend (Spring Boot)**
+
+
+#### Configurar `application.properties`:
+Edita `src/main/resources/application.properties`:
+
+```properties
+# Configuración de MySQL
+spring.datasource.url=jdbc:mysql://localhost:3306/Timely
+spring.datasource.username=root
+spring.datasource.password=tu_password_mysql
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+# Puerto del servidor
+server.port=8081
+```
+
+#### Instalar dependencias y compilar:
+```bash
+mvn clean install
+```
+
+### **4. Configurar el Frontend (React + Vite)**
+
+#### Navegar a la carpeta del frontend:
+```bash
+cd ../../frontend/FrontenTimely
+```
+
+#### Instalar dependencias:
+```bash
+npm install
+```
+
+---
+
+## 🚀 Instrucciones de Ejecución
+
+### **1. Iniciar el Backend**
+
+Desde la carpeta del backend:
+
+
+
+# Desde tu IDE (IntelliJ)
+# Ejecutar ProyectoTimelyApplication.java
+
+
+El servidor arrancará en: `http://localhost:8081`
+
+
+### **2. Iniciar el Frontend**
+
+Desde la carpeta del frontend:
+
+```bash
+npm run dev
+```
+
+La aplicación se abrirá en: `http://localhost:5173` (o el puerto que indique Vite)
+
+### **3. Acceder a la Aplicación**
+
+Abre tu navegador y ve a `http://localhost:5173`
+
+**Credenciales de prueba:**
+- Email: `admin@gmail.com`
+- Password: `admin`
+
+---
+
+## ✅ Funcionalidades Implementadas
+
+### **Autenticación y Usuarios**
+- ✅ **Login** - Inicio de sesión con email y contraseña
+- ✅ **Registro** - Creación de nuevas cuentas de usuario
+- ✅ **Edición de perfil** - Modificación de datos personales
+- ✅ **Cierre de sesión** - Logout con limpieza de sesión
+
+### **Interfaz de Usuario**
+- ✅ **Modo oscuro/claro** - Toggle entre temas visuales
+- ✅ **Navegación SPA** - Navegación fluida sin recargas de página
+- ✅ **Diseño responsive** - Adaptable a diferentes tamaños de pantalla
+- ✅ **Validación de formularios** - Feedback en tiempo real
+
+### **Backend**
+- ✅ **API REST** - Endpoints para usuarios y autenticación
+- ✅ **Persistencia de datos** - Conexión con MySQL mediante JPA
+- ✅ **Validación de credenciales** - Autenticación segura
+- ✅ **CORS habilitado** - Comunicación frontend-backend
+
+---
+
+## 🚧 Funcionalidades Pendientes
+
+### **Sistema de Fichajes**
+- ⏳ **Fichar entrada/salida** - Registro de jornada laboral con botón
+- ⏳ **Historial de fichajes** - Visualización de fichajes anteriores
+
+### **Gestión de Ausencias**
+- ⏳ **Registro de ausencias** - Vacaciones, bajas, permisos
+- ⏳ **Visualización de ausencias** - Vista de ausencias del equipo
+
+
+### **Chat Interno** (Opcional)
+- ⏳ **Mensajería en tiempo real** - Chat con WebSocket/Socket.io
+- ⏳ **Notificaciones** - Alertas de mensajes y eventos
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+timely/
+│
+├── backend/                      # Proyecto Spring Boot
+│   └── ProyectoTimely/
+│       ├── src/
+│       │   ├── main/
+│       │   │   ├── java/
+│       │   │   │   └── com/timely/ProyectoTimely/
+│       │   │   │       ├── controller/    # Controladores REST
+│       │   │   │       ├── model/         # Entidades JPA
+│       │   │   │       ├── repository/    # Repositorios de datos
+│       │   │   │       ├── service/       # Lógica de negocio
+│       │   │   │       └── dto/           # DTOs
+│       │   │   └── resources/
+│       │   │       └── application.properties
+│       │   └── pom.xml
+│       └── target/
+│
+└── frontend/                     # Proyecto React + Vite
+    └── FrontenTimely/
+        ├── src/
+        │   ├── Components/       # Componentes reutilizables
+        │   ├── Pages/            # Páginas de la aplicación
+        │   ├── Services/         # Servicios de API
+        │   ├── styles/           # Archivos CSS
+        │   ├── App.jsx           # Componente raíz
+        │   └── main.jsx          # Punto de entrada
+        ├── package.json
+        └── vite.config.js
+```
+
+---
+
+## 👨‍💻 Autor
+
+**Nombre:** [Endika Pérez Más] 
+**Curso:** [2º DAM]  
+**GitHub:** [https://github.com/EndikaPM]
+
+---
+
+## 📄 Licencia
+
+Este proyecto es parte de un trabajo académico y está disponible únicamente con fines educativos.
+
+---
+
+<div align="center">
+
+**⭐ Hecho con ❤️ usando React y Spring Boot ⭐**
+
+</div>

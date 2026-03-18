@@ -65,8 +65,7 @@ function AppLayout() {
 
           {/* Ruta raíz - Página de inicio */}
           <Route
-            exact
-            path="/"
+            exact path="/"
             render={() => <Home onLoginSuccess={() => setIsAuthenticated(true)} />}
           />
 
@@ -75,9 +74,13 @@ function AppLayout() {
 
           {/* Ruta Dashboard - Pantalla principal */}
           <Route
-            exact
-            path="/dashboard"
+            exact path="/dashboard"
             render={() => (isAuthenticated ? <Dashboard /> : <Redirect to="/" />)}
+          />
+
+          <Route 
+            exact path="/edit-user"
+            render={() => (isAuthenticated ? <EditUser /> : <Redirect to="/" />)}
           />
 
           {/* Puedes agregar más rutas aquí */}

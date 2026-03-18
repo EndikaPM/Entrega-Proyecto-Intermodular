@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/Service/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRequisitoDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRespuestaDto.java" afterDir="false" />
-    </list>
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +73,7 @@
       <workItem from="1771002950463" duration="2084000" />
       <workItem from="1771015977543" duration="790000" />
       <workItem from="1771018453191" duration="3000" />
-      <workItem from="1773680981516" duration="5238000" />
+      <workItem from="1773680981516" duration="5876000" />
     </task>
     <servers />
   </component>
