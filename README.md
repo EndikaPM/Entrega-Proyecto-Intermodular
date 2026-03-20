@@ -1,4 +1,8 @@
 # 🕐 Timely - Sistema de Control de Jornada Laboral
+## 🖼️ Capturas de Pantalla
+![Dashboard de Timely](./capturas/captura2.png)
+![Loging](./capturas/captura1.png)
+![Singin](./capturas/captura3.png)
 
 
 ## 📋 Descripción
