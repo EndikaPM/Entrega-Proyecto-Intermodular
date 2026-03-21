@@ -31,8 +31,8 @@ function Navigation({onLogout}) {
         <nav className="navigation">
             <div className="navbar-nav">
                 <button onClick={handleLogout} className="nav-link logout-button">Log Out</button>
+                <Link to="/edit-user" className="nav-link">Perfil</Link>
                 <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                <Link to="/edit-user" className="nav-link">Editar Usuario</Link>
                 {/* Puedes agregar más enlaces aquí */}
                 {/* 
                 <Link to="/perfil" className="nav-link">

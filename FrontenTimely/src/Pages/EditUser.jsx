@@ -112,7 +112,7 @@ function EditUser() {
 
             console.log('Datos a actualizar:', datosActualizados);
 
-            // TODO: Llamada a la API
+            // genarado en AuthService.js, método updateProfile
             await AuthService.updateProfile(datos.dni, datosActualizados);
 
             // Actualizar localStorage

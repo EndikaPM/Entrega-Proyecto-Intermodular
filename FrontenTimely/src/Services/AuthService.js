@@ -1,31 +1,13 @@
 import axios from 'axios';
 
-/**
- * AUTH SERVICE - Servicio de Autenticación para React
- * 
- * Este archivo maneja todas las peticiones HTTP relacionadas con autenticación.
- * Conecta el frontend (React) con el backend (Spring Boot).
- * 
- */
 
 // URL base de tu API Spring Boot
+const API_URL = 'http://localhost:8081/api/auth';
 
-const API_URL = 'http://localhost:8081/api/auth/';
-
-/**
- * Inicia sesión con email y contraseña.
- * 
- * @param {string} email - Email del usuario
- * @param {string} password - Contraseña del usuario
- * @returns {Promise} Promesa con los datos del usuario
- * 
- * Ejemplo de uso:
- * const usuario = await AuthService.login('juan@empresa.com', '123456');
- */
-
+// Función para iniciar sesión
 const login = async (email, password) => {
     try {
-        const response = await axios.post(`${API_URL}login`, {
+        const response = await axios.post(`${API_URL}/login`, {
             email,
             password
         });
@@ -73,24 +55,10 @@ const isAuthenticated = () => {
     return getCurrentUser() !== null;
 };
 
-/**
- * Registra un nuevo usuario.
- * 
- * @param {Object} datos - Objeto con los datos del usuario
- * @returns {Promise} Promesa con la respuesta del servidor
- * 
- * Ejemplo de uso:
- * const resultado = await AuthService.register({
- *     nombre: 'Juan',
- *     apellido: 'García',
- *     email: 'juan@empresa.com',
- *     contrasena: '123456',
- *     dni: '12345678A'
- * });
- */
+// Función para registrar un nuevo usuario
 const register = async (datos) => {
     try {
-        const response = await axios.post(`${API_URL}register`, datos);//axios.post esto lo usauos para hablar con el microservicio
+        const response = await axios.post(`${API_URL}/register`, datos);//axios.post esto lo usauos para hablar con el microservicio
         return response.data;
     } catch (error) {
         throw error.response?.data?.error || 'Error al registrar. Intenta de nuevo.';
@@ -123,8 +91,8 @@ const updateProfile = async (dni, datosActualizados) => {
 
 // Exportamos las funciones para usarlas en otros componentes
 const AuthService = {
-    login,//esto permite que otras componenetes vean estas funciones y las usen para interactuar con el backend
-    register,
+    login,//esto permite que otras componenetes vean estas funciones 
+    register, // y las usen para interactuar con el backend
     logout,
     getCurrentUser,
     isAuthenticated,

@@ -1,31 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Dashboard.css';
+import AuthService from '../Services/AuthService.js';
+import { useHistory } from 'react-router-dom';
+import JornadaService from '../Services/JornadaService.js';
 
-/**
- * DASHBOARD PAGE
- * 
- * Pantalla principal de la aplicación donde el usuario puede:
- * 1. Fichar entrada/salida (botón izquierdo)
- * 2. Gestionar tareas (columna derecha)
- * 
- * Estado local:
- * - texto: Texto actual de la tarea
- */
+
+
 
 function Dashboard() {
+    const history = useHistory();
     const [texto, setTexto] = useState('')
+    const [error, setError] = useState('');
+    const [cargando, setCargando] = useState(false);
+    const [enLinea, setEnLinea] = useState(false);
+
+    useEffect(() => {
+        const userInLine = async () => {
+            try {
+                const usuario = AuthService.getCurrentUser();
+                if (usuario) {
+                    
+                    const estado = await JornadaService.isInLine(usuario.dni);
+                    setEnLinea(estado.enLinea);
+                }
+            } catch (error) {
+                console.error('Error al verificar estado del usuario:', error);
+            }
+        };
+
+        userInLine();
+    }, []);
 
     // Función para fichar (aquí irá la lógica de tu API)
-    const ficharEntradaSalida = () => {
-        console.log('Fichando entrada/salida...');
-        // TODO: Llamar a la API para registrar el fichaje
+    const ficharEntradaSalida = async () => {
+        try {
+            const usuario = AuthService.getCurrentUser();
+            
+            if (!usuario) {
+                setError('No hay sesión activa.');
+                setTimeout(() => history.push('/'), 2000);
+                return;
+            }
+
+            setCargando(true);
+            setError('');
+            
+            console.log("Fichando para: ", usuario.dni);
+            const resultadoFichar = await JornadaService.ficharEntradaSalida(usuario.dni);
+            console.log('Resultado del fichaje:', resultadoFichar);
+
+            console.log('Fichando entrada/salida...');
+            setEnLinea(!enLinea);
+        } catch (error) {
+            console.error('Error al fichar entrada/salida:', error);
+            setError('Error al fichar entrada/salida. Inténtalo de nuevo.', error);
+            setTimeout(() => {setError('');}, 5000);
+        }finally {
+            setCargando(false);
+        }
     };
 
     // Función para enviar mensaje (aquí irá la lógica de tu API)
     const enviarMensaje = () => {
         if (texto.trim()) {
             console.log('Enviando mensaje:', texto);
-            // TODO: Llamar a la API para crear la tarea
+            // TODO: Llamar a la API enviar mensajes
             setTexto(''); // Limpiar el campo después de enviar
         }
     };
@@ -35,7 +74,7 @@ function Dashboard() {
             {/* Columna izquierda - 1/3 del espacio */}
             <div className="columna-izquierda">
                 <button className="boton-centro" onClick={ficharEntradaSalida}>
-                    Fichar Entrada / Salida
+                    {enLinea ? 'Fichar Salida' : 'Fichar Entrada'}
                 </button>
             </div>
 

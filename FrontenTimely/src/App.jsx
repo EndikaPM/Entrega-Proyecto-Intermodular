@@ -23,10 +23,15 @@ function AppLayout() {
   //Para que al recargar no se pierda el usuario logueado
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+
+    console.log("verificando autentificación...");
     const user = AuthService.getCurrentUser();
+    console.log("Usuario en localStorage:", user);
+
     if (user) {
+      console.log("Usuario encontrado!!, autenticando..."); 
       setIsAuthenticated(true);// Si hay usuario en localStorage, consideramos que está autenticado
-    }
+    }else{console.log("No hay usuario en localStorage, no autenticado.");}
     setLoading(false); // Terminamos de cargar el estado de autenticación
   }, []);
   const location = useLocation();
@@ -36,6 +41,22 @@ function AppLayout() {
     console.log('Cerrando sesión...');
     setIsAuthenticated(false);
   };
+
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '1.2rem',
+        color: 'var(--text-primary)',
+        background: 'var(--background-color)'
+      }}>
+        Cargando...
+      </div>
+    );
+  }
 
   return (
     <div className={`app ${modoOscuro ? 'modo-oscuro' : 'modo-claro'}`}>
