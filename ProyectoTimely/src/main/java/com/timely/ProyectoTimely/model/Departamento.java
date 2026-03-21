@@ -2,27 +2,7 @@ package com.timely.ProyectoTimely.model;
 
 import jakarta.persistence.*;
 
-/**
- * Mapea la tabla "departamento" de MySQL.
- *
- * Tu tabla en MySQL es:
- * CREATE TABLE departamento (
- *   id int UNSIGNED NOT NULL AUTO_INCREMENT,  ← PK numérica
- *   nombre_depar varchar(80),
- *   id_empresa char(12)                       ← FK a empresa.nif
- * )
- *
- * NUEVA ANOTACIÓN:
- * @ManyToOne → Indica una relación "Muchos a Uno".
- *   Significa: "muchos departamentos pertenecen a UNA empresa"
- *   En la BD esto es la FOREIGN KEY (id_empresa) REFERENCES empresa(nif)
- *
- * @JoinColumn(name = "id_empresa") → Le dice a JPA que la columna de la FK
- *   en la tabla "departamento" se llama "id_empresa"
- *
- * @GeneratedValue(strategy = GenerationType.IDENTITY) → El ID lo genera MySQL
- *   automáticamente con AUTO_INCREMENT (tú no lo pones, MySQL lo crea solo)
- */
+
 @Entity
 @Table(name = "departamento")
 public class Departamento {

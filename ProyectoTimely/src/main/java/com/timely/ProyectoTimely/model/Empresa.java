@@ -2,29 +2,7 @@ package com.timely.ProyectoTimely.model;
 
 import jakarta.persistence.*;
 
-/**
- * ENTITY = Una clase Java que representa UNA TABLA de tu base de datos.
- *
- * Esta clase mapea la tabla "empresa" de MySQL.
- *
- * ¿Qué hace cada anotación?
- *
- * @Entity       → Le dice a Spring: "esta clase es una tabla de la BD"
- * @Table        → Indica el nombre EXACTO de la tabla en MySQL
- * @Id           → Esta columna es la PRIMARY KEY
- * @Column       → Mapea un atributo Java a una columna de la tabla
- *                  name = "nombre en MySQL" (si el nombre Java es diferente)
- *
- * REGLA DE ORO: Los nombres en @Column(name="...") y @Table(name="...")
- * deben ser EXACTAMENTE iguales que en tu base de datos (Timely.sql)
- *
- * Tu tabla en MySQL es:
- * CREATE TABLE empresa (
- *   nif char(12) NOT NULL,          ← PRIMARY KEY (texto, no auto-increment)
- *   nombre_empre varchar(80),
- *   direccion varchar(200)
- * )
- */
+
 @Entity
 @Table(name = "empresa")
 public class Empresa {

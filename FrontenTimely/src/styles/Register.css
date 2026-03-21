@@ -204,6 +204,42 @@
     text-align: center;
 }
 
+/* Botón Cancelar */
+.register-cancel {
+    flex: 1;
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.register-cancel:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.register-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Mensaje de éxito */
+.register-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 @media (max-width: 900px) {
     .register-layout {
         grid-template-columns: 1fr;

@@ -3,29 +3,7 @@ package com.timely.ProyectoTimely.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
-/**
- * Mapea la tabla "usuario" de MySQL.
- *
- * Tu tabla en MySQL es:
- * CREATE TABLE usuario (
- *   dni char(9) NOT NULL,                     ← PK (texto)
- *   firstName varchar(50),
- *   lastName varchar(150),
- *   email varchar(250),
- *   password varchar(50),
- *   birthday date,
- *   contract_date date,
- *   social_security char(12),
- *   user_type enum('Administrador','Empleado','Jefe'),
- *   department int UNSIGNED                    ← FK a departamento.id
- * )
- *
- * NUEVA ANOTACIÓN:
- * @Enumerated(EnumType.STRING) → Le dice a JPA cómo guardar el enum en MySQL:
- *   - EnumType.STRING  = guarda el TEXTO ("Administrador", "Empleado", "Jefe")
- *   - EnumType.ORDINAL = guardaría el NÚMERO (0, 1, 2) — NO queremos esto
- *   Usamos STRING porque en tu BD el enum es texto.
- */
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {

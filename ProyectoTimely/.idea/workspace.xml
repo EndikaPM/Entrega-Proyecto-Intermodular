@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/Pages/EditUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/Pages/EditUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/Services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/Services/AuthService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/styles/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/styles/Register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/Service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/Service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/EmpresaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/EmpresaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Ausencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Ausencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/AusenciaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/AusenciaType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Departamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Departamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRequisitoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRequisitoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRespuestaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRespuestaDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Empresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/HorasTrabajo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/HorasTrabajo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Jornada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Jornada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,24 +58,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.ProyectoTimelyApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/ProyectoTimely",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ProyectoTimelyApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/endika/Entrega_proyectoIntermodular/ProyectoTimely&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ProyectoTimelyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -84,6 +106,9 @@
       <workItem from="1771018453191" duration="3000" />
       <workItem from="1773680981516" duration="5876000" />
       <workItem from="1774029086055" duration="87000" />
+      <workItem from="1774030523912" duration="73000" />
+      <workItem from="1774038126971" duration="1006000" />
+      <workItem from="1774090360597" duration="5601000" />
     </task>
     <servers />
   </component>

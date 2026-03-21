@@ -3,19 +3,6 @@ import { useHistory } from 'react-router-dom'
 import '../styles/Login.css'
 import AuthService from '../Services/AuthService.js'
 
-/**
- * LOGIN PAGE - Versión Integrada con Backend
- * 
- * Pantalla de inicio de sesión que se conecta con Spring Boot.
- * 
- * FLUJO COMPLETO:
- * 1. Usuario escribe email y password
- * 2. Hace clic en "Entrar"
- * 3. Se envía POST a http://localhost:8080/api/auth/login
- * 4. Spring Boot valida en MySQL
- * 5. Si OK: Guarda usuario en localStorage y redirige a /dashboard
- * 6. Si ERROR: Muestra mensaje de error
- */
 
 function Login({ onLoginSuccess }) {
     const history = useHistory()
@@ -60,7 +47,7 @@ function Login({ onLoginSuccess }) {
         try {
         setCargando(true);
         setError('');
-            //Borrar cuando funcione el login con backend
+        //Borrar cuando funcione el login con backend
         console.log('Enviando petición a backend...');
         // Llamar al backend para autenticar
         const usuario = await AuthService.login(

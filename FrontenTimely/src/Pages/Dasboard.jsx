@@ -21,10 +21,10 @@ function Dashboard() {
         // TODO: Llamar a la API para registrar el fichaje
     };
 
-    // Función para enviar tarea (aquí irá la lógica de tu API)
-    const enviarTarea = () => {
+    // Función para enviar mensaje (aquí irá la lógica de tu API)
+    const enviarMensaje = () => {
         if (texto.trim()) {
-            console.log('Enviando tarea:', texto);
+            console.log('Enviando mensaje:', texto);
             // TODO: Llamar a la API para crear la tarea
             setTexto(''); // Limpiar el campo después de enviar
         }
@@ -48,7 +48,7 @@ function Dashboard() {
 
                 {/* Contenedor inferior con botón y campo de texto */}
                 <div className="contenedor-inferior">
-                    <button className="boton-accion" onClick={enviarTarea}>
+                    <button className="boton-accion" onClick={enviarMensaje}>
                         Enviar
                     </button>
                     <input
@@ -56,7 +56,7 @@ function Dashboard() {
                         className="campo-texto"
                         value={texto}
                         onChange={(e) => setTexto(e.target.value)}
-                        onKeyPress={(e) => e.key === 'Enter' && enviarTarea()}
+                        onKeyPress={(e) => e.key === 'Enter' && enviarMensaje()}
                         placeholder="Investigar cómo hacer un chat con WebSocket y Socket.io"
                     />
                 </div>

@@ -3,20 +3,6 @@ import { useHistory } from 'react-router-dom';
 import '../styles/Register.css';
 import AuthService from '../Services/AuthService.js';
 
-/**
- * REGISTER PAGE - Versión Integrada con Backend
- * 
- * Pantalla de registro que se conecta con Spring Boot.
- * 
- * FLUJO COMPLETO:
- * 1. Usuario rellena datos personales
- * 2. Opcionalmente añade datos de empresa
- * 3. Hace clic en "Registrar"
- * 4. Se envía POST a http://localhost:8081/api/auth/register
- * 5. Spring Boot valida y crea usuario en MySQL
- * 6. Si OK: Redirige a login
- * 7. Si ERROR: Muestra mensaje de error
- */
 
 function Register() {
     const history = useHistory();

@@ -3,26 +3,7 @@ package com.timely.ProyectoTimely.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * Mapea la tabla "horas_trabajo" de MySQL.
- *
- * Tu tabla en MySQL es:
- * CREATE TABLE horas_trabajo (
- *   id_usuario char(9) NOT NULL,              ← PK y FK a usuario.dni
- *   horas_contrato decimal(10,1),
- *   horas_trabajadas decimal(10,1)
- * )
- *
- * CASO ESPECIAL: Aquí la Primary Key es TAMBIÉN una Foreign Key.
- * Es decir, "id_usuario" es a la vez PK de esta tabla Y apunta a usuario.dni.
- *
- * En JPA esto se resuelve con @MapsId:
- * - @Id recae sobre el campo "idUsuario" (la PK)
- * - @OneToOne + @MapsId dice "esta relación USA la misma columna que la PK"
- *
- * BigDecimal → tipo Java para decimales exactos. Perfecto para DECIMAL de MySQL.
- *   (no usamos double porque double puede tener errores de redondeo: 0.1 + 0.2 ≠ 0.3)
- */
+
 @Entity
 @Table(name = "horas_trabajo")
 public class HorasTrabajo {

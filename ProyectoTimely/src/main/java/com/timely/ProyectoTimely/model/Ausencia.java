@@ -3,21 +3,7 @@ package com.timely.ProyectoTimely.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
-/**
- * Mapea la tabla "Ausencias" de MySQL.
- *
- * IMPORTANTE: Fíjate que la tabla se llama "Ausencias" con mayúscula.
- * En MySQL esto importa dependiendo del SO (Linux distingue mayúsculas).
- *
- * Tu tabla en MySQL es:
- * CREATE TABLE Ausencias (
- *   id int NOT NULL AUTO_INCREMENT,
- *   id_trabajador char(9),                    ← FK a usuario.dni
- *   dia_inicio_ausencia date,
- *   dia_fin_ausencia date,
- *   motivo enum('VACACIONES','DESCANSO','CITA_MEDICA','OTRAS')
- * )
- */
+
 @Entity
 @Table(name = "Ausencias")  // ← Con mayúscula, tal como está en tu BD
 public class Ausencia {

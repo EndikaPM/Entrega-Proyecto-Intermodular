@@ -43,14 +43,24 @@ public class UsuarioController {
 
     // PUT /api/usuarios/52413669H → Actualizar usuario
     @PutMapping("/{dni}")
-    public ResponseEntity<Usuario> update(@PathVariable String dni,
-                                          @RequestBody Usuario usuario) {
-        if (!usuarioRepository.existsById(dni)) {
-            return ResponseEntity.notFound().build();
-        }
-        usuario.setDni(dni);
-        Usuario actualizado = usuarioRepository.save(usuario);
-        return ResponseEntity.ok(actualizado);
+    public ResponseEntity<Usuario> update(@PathVariable String dni, @RequestBody Usuario usuarioNuevo) {
+        // Esto busca si el usuario original  exite en BD
+        return  usuarioRepository.findById(dni).map(usuarioExitente -> {
+            //Actualizar los campos que modificar
+            usuarioExitente.setFirstName(usuarioNuevo.getFirstName());
+            usuarioExitente.setLastName(usuarioNuevo.getLastName());
+            usuarioExitente.setEmail(usuarioNuevo.getEmail());
+            if (usuarioNuevo.getPassword() != null && usuarioNuevo.getPassword().isEmpty()) {
+                usuarioExitente.setPassword(usuarioNuevo.getPassword());
+            }
+            usuarioExitente.setBirthday(usuarioNuevo.getBirthday());
+            usuarioExitente.setContractDate(usuarioNuevo.getContractDate());
+            usuarioExitente.setSocialSecurity(usuarioExitente.getSocialSecurity());
+
+            //Aqí guardo lo modificado
+            Usuario actualizado = usuarioRepository.save(usuarioExitente);
+            return ResponseEntity.ok(actualizado);// genera un mensaje de Accion correcta
+        }).orElse(ResponseEntity.notFound().build());//genera un mensaje de no exixte el usuario
     }
 
     // DELETE /api/usuarios/52413669H → Eliminar usuario

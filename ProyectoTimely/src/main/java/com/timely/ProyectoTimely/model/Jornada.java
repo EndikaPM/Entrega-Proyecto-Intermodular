@@ -4,23 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**
- * Mapea la tabla "jornada" de MySQL.
- *
- * Tu tabla en MySQL es:
- * CREATE TABLE jornada (
- *   id int UNSIGNED NOT NULL AUTO_INCREMENT,
- *   id_trabajador char(9) NOT NULL,           ← FK a usuario.dni
- *   fecha_actual date,
- *   hora_entrada time,
- *   hora_salida time,
- *   modificado tinyint(1)                     ← booleano (0 o 1)
- * )
- *
- * NUEVOS CONCEPTOS:
- * - LocalTime → tipo Java para horas (sin fecha). Perfecto para TIME de MySQL.
- * - tinyint(1) en MySQL = boolean en Java (0=false, 1=true)
- */
+
 @Entity
 @Table(name = "jornada")
 public class Jornada {

@@ -175,43 +175,6 @@ Abre tu navegador y ve a `http://localhost:5173`
 - ⏳ **Notificaciones** - Alertas de mensajes y eventos
 
 ---
-
-## 📁 Estructura del Proyecto
-
-```
-timely/
-│
-├── backend/                      # Proyecto Spring Boot
-│   └── ProyectoTimely/
-│       ├── src/
-│       │   ├── main/
-│       │   │   ├── java/
-│       │   │   │   └── com/timely/ProyectoTimely/
-│       │   │   │       ├── controller/    # Controladores REST
-│       │   │   │       ├── model/         # Entidades JPA
-│       │   │   │       ├── repository/    # Repositorios de datos
-│       │   │   │       ├── service/       # Lógica de negocio
-│       │   │   │       └── dto/           # DTOs
-│       │   │   └── resources/
-│       │   │       └── application.properties
-│       │   └── pom.xml
-│       └── target/
-│
-└── frontend/                     # Proyecto React + Vite
-    └── FrontenTimely/
-        ├── src/
-        │   ├── Components/       # Componentes reutilizables
-        │   ├── Pages/            # Páginas de la aplicación
-        │   ├── Services/         # Servicios de API
-        │   ├── styles/           # Archivos CSS
-        │   ├── App.jsx           # Componente raíz
-        │   └── main.jsx          # Punto de entrada
-        ├── package.json
-        └── vite.config.js
-```
-
----
-
 ## 👨‍💻 Autor
 
 **Nombre:** [Endika Pérez Más] 

@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import AuthService from '../Services/AuthService';
+import '../styles/EditUser.css';
 
 function EditUser() {
     const history = useHistory();
-    const [mostrarDatos, setMostrarDatos] = useState(true);
-
+    const [mostrarDatos, setMostrarDatos] = useState(false);
     const [cargando, setCargando] = useState(false);
-
     const [cargandoDatos, setCargandoDatos] = useState(true);
-
     const [error, setError] = useState('');
     const [exito, setExito] = useState('');
 
@@ -22,7 +21,6 @@ function EditUser() {
         fechaContratacion: '',
         numSS: '',
         departamento: '',
-        //dni y tipoUsuario se mantienen pero no se pueden editar
         dni: '',
         tipoUsuario: ''
     });
@@ -30,45 +28,49 @@ function EditUser() {
     useEffect(() => {
         const cargarDatosUsuario = () => {
             try {
-                const usuario = JSON.parse(localStorage.getItem('usuario'));
-                if (usuario) {
-                    setDatos({
-                        nombre: usuario.nombre || '',
-                        apellidos: usuario.apellidos || '',
-                        fechaNacimiento: usuario.fechaNacimiento || '',
-                        email: usuario.email || '',
-                        nuevaContraseña: '',
-                        confirmarContraseñaNueva: '',
-                        fechaContratacion: usuario.fechaContratacion || '',
-                        numSS: usuario.numSS || '',
-                        departamento: usuario.departamento || ''
-                    });
-                    console.log("Usuario cargado", usuario);
-                    
-                }else{
-                    setError('No se encontraron datos del usuario. Por favor, inicia sesión nuevamente.');
-                    history.push('/'); // Redirige al login si no hay datos de usuario
+                const usuario = AuthService.getCurrentUser();
+                
+                if (!usuario) {
+                    setError('No hay sesión activa. Redirigiendo...');
+                    setTimeout(() => history.push('/'), 2000);
+                    return;
                 }
-            }catch (error) {
-                console.error("Error al cargar el usuario", error);
-                setError('No se pudieron cargar los datos del usuario. Por favor, inténtalo de nuevo.');
+
+                console.log('Usuario cargado:', usuario);
+                
+                setDatos({
+                    nombre: usuario.firstName || '',
+                    apellidos: usuario.lastName || '',
+                    fechaNacimiento: usuario.birthdate || '',
+                    email: usuario.email || '',
+                    nuevaContraseña: '',
+                    confirmarContraseñaNueva: '',
+                    fechaContratacion: usuario.contractDate || '', 
+                    numSS: usuario.ss || '', 
+                    departamento: usuario.departmentId || '',
+                    dni: usuario.dni || '',
+                    tipoUsuario: usuario.userType || ''
+                });
+                
+            } catch (error) {
+                console.error('Error al cargar usuario:', error);
+                setError('No se pudieron cargar los datos del usuario.');
             } finally {
                 setCargandoDatos(false);
             }
         };
+
         cargarDatosUsuario();
     }, [history]);
 
-
-        const handleChange = (e) => {
-            const { name, value } = e.target;
-            setDatos((prevDatos) => ({
-                ...prevDatos,
-                [name]: value
-            }));
-            if (error) setError('');
-            if (exito) setExito('');
-        }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setDatos((prevDatos) => ({
+            ...prevDatos,
+            [name]: value
+        }));
+        if (error) setError('');
+        if (exito) setExito('');
     };
 
     const handleSubmit = async (e) => {
@@ -79,61 +81,83 @@ function EditUser() {
             return;
         }
 
-        if (datos.nuevaContraseña !== datos.confirmarContraseñaNueva){
+        if (datos.nuevaContraseña && datos.nuevaContraseña !== datos.confirmarContraseñaNueva) {
             setError('Las contraseñas no coinciden.');
             return;
         }
 
-        if (datos.nuevaContraseña.length < 6){
-            setError('La contraseña debe tener al menos 6 caracteres')
-            return
+        if (datos.nuevaContraseña && datos.nuevaContraseña.length < 6) {
+            setError('La contraseña debe tener al menos 6 caracteres');
+            return;
         }
 
-    try{
-        setCargando(true);
-        setError('');
-        setExito('');
+        try {
+            setCargando(true);
+            setError('');
+            setExito('');
 
-        console.log("Enviando actualizacion de perfil");
-        
-        const datosActualizados = {
-            dni: datos.dni,
-            firstName: datos.nombre,
-            lastName: datos.apellidos,
-            email: datos.email,
-            newPassword: datos.nuevaContraseña,
-            birthday: datos.fechaNacimiento,
-            ssDate: datos.fechaContratacion,
-            ssNumber: datos.numSS,
-            department: datos.departamento
+            console.log('Enviando actualización de perfil...');
+            
+            const datosActualizados = {
+                dni: datos.dni,
+                firstName: datos.nombre,
+                lastName: datos.apellidos,
+                email: datos.email,
+                ...(datos.nuevaContraseña && { password: datos.nuevaContraseña }),
+                birthday: datos.fechaNacimiento || null,
+                contractDate: datos.fechaContratacion || null,
+                socialSecurity: datos.numSS|| null,
+                department: datos.departamento
+            };
+
+            console.log('Datos a actualizar:', datosActualizados);
+
+            // TODO: Llamada a la API
+            await AuthService.updateProfile(datos.dni, datosActualizados);
+
+            // Actualizar localStorage
+            const usuarioActualizado = {
+                ...AuthService.getCurrentUser(),
+                ...datosActualizados
+            };
+            localStorage.setItem('user', JSON.stringify(usuarioActualizado));
+
+            setExito('Perfil actualizado con éxito.');
+
+            // Limpiar contraseñas
+            setDatos(prev => ({
+                ...prev,
+                nuevaContraseña: '',
+                confirmarContraseñaNueva: ''
+            }));
+
+        } catch (error) {
+            console.error('Error al actualizar perfil:', error);
+            setError('No se pudo actualizar el perfil. Intenta de nuevo.');
+        } finally {
+            setCargando(false);
         }
-
-        //LLamada a la api?????
-
-        setExito('Perfil actualizado con éxito.');
-        setCargando(false);
-
-        setDatos(pre => ({// limpiamos los datos de la contraseña para seguridad
-            ...pre,
-            nuevaContraseña: '',
-            confirmarContraseñaNueva: ''
-        }));
-    }catch (error) {
-        console.error("Error al actualizar el perfil", error);
-        setError('No se pudo actualizar el perfil. Por favor, inténtalo de nuevo.');
-        setCargando(false);
-    }
+    };
 
     const handleVolver = () => {
         history.push('/dashboard');
     };
 
     if (cargandoDatos) {
-        return <div>Cargando datos del usuario...</div>;
+        return (
+            <div style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                height: '100vh' 
+            }}>
+                Cargando datos del usuario...
+            </div>
+        );
     }
 
     return (
-                <div className="register-layout">
+        <div className="edit-user-container">
             <aside className="register-side-panel">
                 <p className="register-kicker">Timely</p>
                 <h1 className="register-side-title">Editar Perfil</h1>
@@ -165,13 +189,13 @@ function EditUser() {
                                 disabled={cargando}
                             />
 
-                            <label htmlFor="apellido" className="register-label">Apellido</label>
+                            <label htmlFor="apellidos" className="register-label">Apellidos</label>
                             <input
                                 type="text"
-                                id="apellido"
-                                name="apellido"
+                                id="apellidos"
+                                name="apellidos"
                                 className="register-input"
-                                value={datos.apellido}
+                                value={datos.apellidos}
                                 onChange={handleChange}
                                 placeholder="García López"
                                 required
@@ -185,8 +209,8 @@ function EditUser() {
                                 name="dni"
                                 className="register-input"
                                 value={datos.dni}
-                                disabled={true} // DNI no se puede cambiar
-                                style={{ backgroundColor: '#f0f0f0', cursor: 'not-allowed' }}
+                                disabled={true}
+                                style={{ backgroundColor: '#f0f0f0', cursor: 'not-allowed', color: '#555' }}
                             />
 
                             <label htmlFor="fechaNacimiento" className="register-label">Fecha de nacimiento</label>
@@ -215,31 +239,31 @@ function EditUser() {
                                 disabled={cargando}
                             />
 
-                            <label htmlFor="nuevaContrasena" className="register-label">
+                            <label htmlFor="nuevaContraseña" className="register-label">
                                 Nueva contraseña (dejar en blanco para no cambiar)
                             </label>
                             <input
                                 type="password"
-                                id="nuevaContrasena"
-                                name="nuevaContrasena"
+                                id="nuevaContraseña"
+                                name="nuevaContraseña"
                                 className="register-input"
-                                value={datos.nuevaContrasena}
+                                value={datos.nuevaContraseña}
                                 onChange={handleChange}
                                 placeholder="Mínimo 6 caracteres"
                                 disabled={cargando}
                             />
 
-                            {datos.nuevaContrasena && (
+                            {datos.nuevaContraseña && (
                                 <>
-                                    <label htmlFor="confirmarContrasena" className="register-label">
+                                    <label htmlFor="confirmarContraseñaNueva" className="register-label">
                                         Confirmar nueva contraseña
                                     </label>
                                     <input
                                         type="password"
-                                        id="confirmarContrasena"
-                                        name="confirmarContrasena"
+                                        id="confirmarContraseñaNueva"
+                                        name="confirmarContraseñaNueva"
                                         className="register-input"
-                                        value={datos.confirmarContrasena}
+                                        value={datos.confirmarContraseñaNueva}
                                         onChange={handleChange}
                                         placeholder="Repite la contraseña"
                                         disabled={cargando}
@@ -273,15 +297,15 @@ function EditUser() {
                                         disabled={cargando}
                                     />
 
-                                    <label htmlFor="numeroSeguroSocial" className="register-label">
+                                    <label htmlFor="numSS" className="register-label">
                                         Nº Seguridad Social
                                     </label>
                                     <input
                                         type="text"
-                                        id="numeroSeguroSocial"
-                                        name="numeroSeguroSocial"
+                                        id="numSS"
+                                        name="numSS"
                                         className="register-input"
-                                        value={datos.numeroSeguroSocial}
+                                        value={datos.numSS}
                                         onChange={handleChange}
                                         placeholder="12 34567890 12"
                                         disabled={cargando}
@@ -302,18 +326,14 @@ function EditUser() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                    <div className='button-container'>
                         <button type="submit" className="register-submit" disabled={cargando}>
                             {cargando ? 'Guardando...' : 'Guardar Cambios'}
                         </button>
                         
-                        <button 
-                            type="button" 
-                            className="register-cancel" 
-                            onClick={handleVolver}
-                            disabled={cargando}
-                        >
-                            Cancelar
+                        <button type="button" className="register-cancel" 
+                        onClick={handleVolver} disabled={cargando}>
+                            {cargando ? 'Cancelando...' : 'Cancelar'}
                         </button>
                     </div>
                 </form>
@@ -321,6 +341,5 @@ function EditUser() {
         </div>
     );
 }
-
 
 export default EditUser;

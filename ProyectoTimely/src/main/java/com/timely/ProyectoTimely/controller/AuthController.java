@@ -30,17 +30,7 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
-    /**
-     * POST /api/auth/login
-     *
-     * Recibe: { "email": "juan@empresa.com", "password": "123456" }
-     * Devuelve: { "dni": "...", "firstName": "...", "email": "...", etc. }
-     *
-     * Códigos HTTP:
-     * - 200 OK: Login exitoso
-     * - 401 Unauthorized: Credenciales incorrectas
-     * - 400 Bad Request: Datos inválidos (email vacío, etc.)
-     */
+
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequisitoDto loginRequisitos) {

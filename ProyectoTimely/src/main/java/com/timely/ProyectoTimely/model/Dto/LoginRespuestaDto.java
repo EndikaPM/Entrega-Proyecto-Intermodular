@@ -2,39 +2,32 @@ package com.timely.ProyectoTimely.model.Dto;
 
 import com.timely.ProyectoTimely.model.UserType;
 
+import java.time.LocalDate;
+
 public class LoginRespuestaDto {
-    /**
-     * DTO para la respuesta del login.
-     *
-     * ¿Por qué este DTO?
-     * - Seguridad: NO devolvemos la contraseña al frontend
-     * - Eficiencia: Solo enviamos los datos que el frontend necesita
-     * - Token: En el futuro puedes agregar un campo "token" para JWT
-     *
-     * El backend devolverá un JSON así:
-     * {
-     *   "dni": "52413669H",
-     *   "firstName": "Juan",
-     *   "lastName": "Pérez",
-     *   "email": "juan@empresa.com",
-     *   "userType": "Empleado",
-     *   "departmentId": 3
-     * }
-     */
+
     private String dni;
     private String firstName;
     private String lastName;
     private String email;
+    private LocalDate birthdate;
+    private LocalDate contractDate;
+    private String ss;
     private UserType userType;
     private int departmentId;
 
     public LoginRespuestaDto(){}
 
-    public LoginRespuestaDto(String dni, String firstName, String lastName, String email, UserType userType, int departmentId) {
+    public LoginRespuestaDto(String dni, String firstName, String lastName, String email,
+                             LocalDate birthdate,LocalDate contractDate, String ss,UserType
+                                     userType, int departmentId) {
         this.dni = dni;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.birthdate = birthdate;
+        this.contractDate = contractDate;
+        this.ss = ss;
         this.userType = userType;
         this.departmentId = departmentId;
     }
@@ -85,5 +78,29 @@ public class LoginRespuestaDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate bithdate) {
+        this.birthdate = bithdate;
+    }
+
+    public LocalDate getContractDate() {
+        return contractDate;
+    }
+
+    public void setContractDate(LocalDate contractDate) {
+        this.contractDate = contractDate;
+    }
+
+    public String getSs() {
+        return ss;
+    }
+
+    public void setSs(String ss) {
+        this.ss = ss;
     }
 }

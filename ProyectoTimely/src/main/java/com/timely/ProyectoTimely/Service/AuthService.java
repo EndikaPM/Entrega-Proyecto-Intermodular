@@ -74,6 +74,9 @@ public class AuthService {
         response.setFirstName(usuario.getFirstName());
         response.setLastName(usuario.getLastName());
         response.setEmail(usuario.getEmail());
+        response.setBirthdate(usuario.getBirthday());
+        response.setSs(usuario.getSocialSecurity());
+        response.setContractDate(usuario.getContractDate());
         response.setUserType(usuario.getUserType());
         response.setDepartmentId(usuario.getDepartamento().getId());
 
