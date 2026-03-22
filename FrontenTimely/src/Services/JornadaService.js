@@ -25,7 +25,8 @@ const JornadaService = {
             const responde = await axios.get(`${API_URL}/usuario/${dni}`);
 
             // Buscar si hay una jornada hoy sin salida
-            const jornadaHoy = responde.data.find(j => j.fecha === hoy && j.horaSalida === null);
+            //Mirar que los nombre Coincidan con los que debuelve el Json IMPORTANTE TONTO
+            const jornadaHoy = responde.data.find(j => j.fechaActual === hoy && j.horaSalida === null);
 
             return { enLinea: !!jornadaHoy }; // Si jornadaHoy existe, el usuario está en línea
             //la doble negación es un truco para convertir cualquier cosa a Boolean

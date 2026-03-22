@@ -28,9 +28,9 @@
 - **Maven** - Gestión de dependencias y construcción del proyecto
 
 ### **Herramientas de Desarrollo**
-- **Java** 25
+- **Java** 
 - **Node.js** (requerido para React)
-- **MySQL Server**
+- **MySQL**
 - **Postman** - Pruebas de API 
 
 ---
@@ -103,6 +103,7 @@ npm install
 ---
 
 ## 🚀 Instrucciones de Ejecución
+Inicia MySQL
 
 ### **1. Iniciar el Backend**
 
@@ -110,9 +111,11 @@ Desde la carpeta del backend:
 
 
 
-# Desde tu IDE (IntelliJ)
-# Ejecutar ProyectoTimelyApplication.java
+## Desde tu IDE (IntelliJ)
 
+Presiona ▶️ en la parte superior del IDE
+
+### Ejecutar ProyectoTimelyApplication.java
 
 El servidor arrancará en: `http://localhost:8081`
 
@@ -178,7 +181,7 @@ Abre tu navegador y ve a `http://localhost:5173`
 ## 👨‍💻 Autor
 
 **Nombre:** [Endika Pérez Más] 
-**Curso:** [2º DAM]  
+**Curso:** [2º DAM]
 **GitHub:** [https://github.com/EndikaPM]
 
 ---

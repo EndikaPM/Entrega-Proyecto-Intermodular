@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/Pages/EditUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/Pages/EditUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontenTimely/src/Services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontenTimely/src/Services/AuthService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/JornadaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/timely/ProyectoTimely/controller/JornadaController.java" afterDir="false" />
-    </list>
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +86,7 @@
       <workItem from="1774029086055" duration="87000" />
       <workItem from="1774030523912" duration="73000" />
       <workItem from="1774038126971" duration="1006000" />
-      <workItem from="1774090360597" duration="12641000" />
+      <workItem from="1774090360597" duration="13354000" />
     </task>
     <servers />
   </component>

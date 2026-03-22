@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-03-2026 a las 21:33:02
+-- Tiempo de generación: 22-03-2026 a las 14:17:35
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -84,7 +84,7 @@ INSERT INTO `empresa` (`nif`, `nombre_empre`, `direccion`) VALUES
 CREATE TABLE `horas_trabajo` (
   `id_usuario` char(9) NOT NULL,
   `horas_contrato` decimal(10,1) UNSIGNED NOT NULL,
-  `horas_trabajadas` decimal(10,1) UNSIGNED NOT NULL
+  `horas_trabajadas` decimal(10,1) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -92,6 +92,7 @@ CREATE TABLE `horas_trabajo` (
 --
 
 INSERT INTO `horas_trabajo` (`id_usuario`, `horas_contrato`, `horas_trabajadas`) VALUES
+('00000000O', 1750.0, 0.1),
 ('12345678C', 1065.6, 10.0),
 ('52413669H', 1776.0, 14.0),
 ('6541355L', 888.0, 8.0),
@@ -127,44 +128,63 @@ INSERT INTO `jornada` (`id`, `id_trabajador`, `fecha_actual`, `hora_entrada`, `h
 (21, '90123456B', '2025-10-20', '08:00:00', '14:00:00', 0),
 (22, '90123456B', '2025-10-21', '08:00:00', '14:00:00', 0),
 (23, '12345678C', '2025-10-20', '09:00:00', '14:00:00', 0),
-(24, '12345678C', '2025-10-21', '09:00:00', '14:00:00', 0);
+(24, '12345678C', '2025-10-21', '09:00:00', '14:00:00', 0),
+(25, '00000000O', '2026-03-21', '20:10:32', '20:16:13', 0),
+(26, '00000000O', '2026-03-21', '20:41:25', '20:41:51', 0),
+(27, '00000000O', '2026-03-22', '13:03:26', '13:04:30', 0),
+(28, '00000000O', '2026-03-22', '13:37:00', NULL, 0);
 
 --
 -- Disparadores `jornada`
 --
 DELIMITER $$
 CREATE TRIGGER `actualizar_horas_trabajadas` AFTER UPDATE ON `jornada` FOR EACH ROW BEGIN
-	DECLARE total_horas DECIMAL(10,1);
+    DECLARE total_horas DECIMAL(10,1);
     
-    -- si se actualiza necesitamos recalcular las horas igual que antes
-    SELECT COALESCE(SUM(TIMESTAMPDIFF(MINUTE, hora_entrada, hora_salida) / 60), 0)
-    INTO total_horas 
-    FROM jornada
-    WHERE id_trabajador = NEW.id_trabajador
-    AND hora_entrada IS NOT NULL 
-    AND hora_salida IS NOT NULL;
+    -- Solo ejecutar si se acaba de agregar hora_salida
+    -- (antes era NULL y ahora tiene valor)
+    IF OLD.hora_salida IS NULL AND NEW.hora_salida IS NOT NULL THEN
+        
+        -- Calcular el total de horas trabajadas del empleado
+        SELECT COALESCE(SUM(TIMESTAMPDIFF(MINUTE, hora_entrada, hora_salida) / 60.0), 0)
+        INTO total_horas
+        FROM jornada
+        WHERE id_trabajador = NEW.id_trabajador
+          AND hora_entrada IS NOT NULL
+          AND hora_salida IS NOT NULL;
+        
+        -- Actualizar o insertar en horas_trabajo
+        INSERT INTO horas_trabajo (id_usuario, horas_contrato, horas_trabajadas)
+        VALUES (NEW.id_trabajador, 0, ROUND(total_horas, 1))
+        ON DUPLICATE KEY UPDATE 
+            horas_trabajadas = ROUND(total_horas, 1);
+            
+    END IF;
     
-    UPDATE horas_trabajo SET horas_trabajadas = ROUND(total_horas, 1) WHERE id_usuario = NEW.id_trabajador;
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `calcular_horas_trabajadas` AFTER INSERT ON `jornada` FOR EACH ROW BEGIN
-	DECLARE total_horas DECIMAL(10,2);
+    DECLARE total_horas DECIMAL(10,1);
     
-    -- calculo las horas de cada linea de empleado de horas que trabaja
-    SELECT COALESCE(SUM(TIMESTAMPDIFF(MINUTE, hora_entrada, hora_salida) / 60), 0)
-    /*  1ºPonemos el COALESE para evitar los null ya que si tiene entrada pero no salida petaba se lo pregunte a la IA (COALESCE(..., 0): Si no hay nada que sumar, entrega un 0 en lugar de un vacío.
-    	2ºTIMESTAMPDIFF(MINUTE, ...): Calcula la diferencia entre entrada y salida en minutos lo divido en sesenta y asi me debuelve esos minutos en horas decimales.*/
-    INTO total_horas
-    FROM jornada
-    WHERE id_trabajador = NEW.id_trabajador
-    AND hora_entrada IS NOT NULL# aqui con estas dos lineas ignoramos todos los registros 
-    AND hora_salida IS NOT NULL;# que no esten completo que le falte la salida.
+    -- Solo si se insertó con entrada Y salida completas
+    IF NEW.hora_entrada IS NOT NULL AND NEW.hora_salida IS NOT NULL THEN
+        
+        SELECT COALESCE(SUM(TIMESTAMPDIFF(MINUTE, hora_entrada, hora_salida) / 60.0), 0)
+        INTO total_horas
+        FROM jornada
+        WHERE id_trabajador = NEW.id_trabajador
+          AND hora_entrada IS NOT NULL
+          AND hora_salida IS NOT NULL;
+        
+        INSERT INTO horas_trabajo (id_usuario, horas_contrato, horas_trabajadas)
+        VALUES (NEW.id_trabajador, 0, ROUND(total_horas, 1))
+        ON DUPLICATE KEY UPDATE 
+            horas_trabajadas = ROUND(total_horas, 1);
+            
+    END IF;
     
-    -- Actualizamos la tabla para que tenga las horas totales
-    UPDATE horas_trabajo SET horas_trabajadas = ROUND(total_horas, 1)# Un metodo de seguridad por si se trunca mal
-    WHERE id_usuario = NEW.id_trabajador;
 END
 $$
 DELIMITER ;
