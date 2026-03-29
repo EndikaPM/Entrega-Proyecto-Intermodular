@@ -1,13 +1,9 @@
-import axios from 'axios';
-
-
-// URL base de tu API Spring Boot
-const API_URL = 'http://localhost:8081/api/auth';
+import Api from './Api';
 
 // Función para iniciar sesión
 const login = async (email, password) => {
     try {
-        const response = await axios.post(`${API_URL}/login`, {
+        const response = await Api.post('/auth/login', {
             email,
             password
         });
@@ -56,9 +52,21 @@ const isAuthenticated = () => {
 };
 
 // Función para registrar un nuevo usuario
-const register = async (datos) => {
+const register = async (userData) => {
     try {
-        const response = await axios.post(`${API_URL}/register`, datos);//axios.post esto lo usauos para hablar con el microservicio
+        const datosRegistro = {
+            dni: userData.dni,
+            firstName: userData.nombre,      // ← Mapeo correcto
+            lastName: userData.apellido,     // ← Mapeo correcto
+            email: userData.email,
+            password: userData.contrasena,   // ← Mapeo correcto
+            birthday: userData.fechaNacimiento || null,
+            contract_date: userData.fechaContratacion || null,
+            social_security: userData.numeroSeguroSocial || null,
+            department: userData.department || null,  // ← ID de un departamento por defecto (ajusta según tu BD)
+            user_type: 'Empleado'  // ← Tipo de usuario por defecto
+        };
+        const response = await Api.post('/usuarios', datosRegistro);//axios.post esto lo usauos para hablar con el microservicio
         return response.data;
     } catch (error) {
         throw error.response?.data?.error || 'Error al registrar. Intenta de nuevo.';
@@ -68,10 +76,7 @@ const register = async (datos) => {
 // MÉTODO PARA ACTUALIZAR PERFIL
 const updateProfile = async (dni, datosActualizados) => {
     try {
-        const response = await axios.put(// axios.put para actualizar datos en el backend
-        `http://localhost:8081/api/usuarios/${dni}`,
-        datosActualizados
-        );
+        const response = await Api.put(`/usuarios/${dni}`, datosActualizados); // axios.put para actualizar datos en el backend
     
         // Actualizar localStorage con los nuevos datos
         if (response.data) {// Si la actualización fue exitosa, actualizamos el usuario en localStorage

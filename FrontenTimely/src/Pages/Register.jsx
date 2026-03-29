@@ -64,13 +64,14 @@ function Register() {
                 fechaContratacion: mostrarDatos ? datos.fechaContratacion : null,
                 numeroSeguroSocial: mostrarDatos ? datos.numeroSeguroSocial : null
             });
+            console.table(response);
 
             setExito('Registro exitoso. Redirigiendo a login...');
             setTimeout(() => {
                 history.push('/');
             }, 2000);
 
-        } catch (err) {
+        } catch (err) { 
             console.error('Error de registro:', err);
             setError(err || 'Error al registrar. Intenta de nuevo.');
         } finally {

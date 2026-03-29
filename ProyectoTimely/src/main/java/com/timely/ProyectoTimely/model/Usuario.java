@@ -29,26 +29,23 @@ public class Usuario {
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
-    @Column(name = "contract_date", nullable = false)
+    @Column(name = "contract_date", nullable = true)
     private LocalDate contractDate;
 
-    @Column(name = "social_security", nullable = false, length = 12)
+    @Column(name = "social_security", nullable = true, length = 12)
     private String socialSecurity;
 
     // @Enumerated(EnumType.STRING) → Guarda "Administrador"/"Empleado"/"Jefe" como texto
     @Enumerated(EnumType.STRING)
-    @Column(name = "user_type", nullable = false)
+    @Column(name = "user_type", nullable = true)
     private UserType userType;
 
     // @ManyToOne = Muchos usuarios → Un departamento
     // La FK en MySQL es: department int → apunta a departamento.id
     @ManyToOne
-    @JoinColumn(name = "department", nullable = false)
+    @JoinColumn(name = "department", nullable = true)
     private Departamento departamento;
 
-    // ==========================================
-    // CONSTRUCTORES
-    // ==========================================
 
     public Usuario() {
     }
@@ -68,9 +65,6 @@ public class Usuario {
         this.departamento = departamento;
     }
 
-    // ==========================================
-    // GETTERS Y SETTERS
-    // ==========================================
 
     public String getDni() {
         return dni;

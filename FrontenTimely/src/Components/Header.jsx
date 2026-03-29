@@ -1,53 +1,39 @@
-import React from 'react'
-import '../styles/Header.css'
-
-/**
- * HEADER COMPONENT
- * 
- * Este componente se muestra en TODAS las páginas de la aplicación.
- * Contiene:
- * - Logo de la aplicación (icono + nombre "Timely")
- * - Botón para cambiar entre modo oscuro y claro
- * 
- * Props que recibe:
- * - modoOscuro: boolean - Estado actual del tema (true = oscuro, false = claro)
- * - setModoOscuro: function - Función para cambiar el estado del tema
- */
+import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import '../styles/Header.css';
 
 function Header({ modoOscuro, setModoOscuro }) {
     return (
         <header className="header">
-            {/* Logo + Título */}
-            <div className="logo-container">
-                <div className="logo">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
-                        <path d="M12 6V12L16 14" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                        <circle cx="12" cy="12" r="1.5" fill="white" />
-                    </svg>
-                </div>
-                <h1 className="titulo">Timely</h1>
+        <div className="logo-container">
+            <div className="logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                <path d="M12 6V12L16 14" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="12" cy="12" r="1.5" fill="white" />
+            </svg>
             </div>
+            <h1 className="titulo"><Link to="/dashboard">Timely</Link></h1>
+        </div>
 
-            {/* Botón para cambiar modo oscuro/claro */}
-            <button
-                className="toggle-modo"
-                onClick={() => setModoOscuro(!modoOscuro)}
-                title={modoOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-            >
-                {modoOscuro ? (
-                    // Icono de Sol (modo claro)
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="4" fill="currentColor" />
-                        <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                ) : (
-                    // Icono de Luna (modo oscuro)
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
-                    </svg>
-                )}
-            </button>
+        <button
+            type="button"
+            className="toggle-modo"
+            onClick={() => setModoOscuro(!modoOscuro)}
+            title={modoOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            aria-label={modoOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+        >
+            {modoOscuro ? (
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="4" fill="currentColor" />
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+            ) : (
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+            </svg>
+            )}
+        </button>
         </header>
     );
 }
