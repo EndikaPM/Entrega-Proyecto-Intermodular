@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import "./styles/App.css";
 
@@ -13,6 +13,7 @@ import Register from './Pages/Register.jsx';
 import Dashboard from './Pages/Dasboard.jsx';
 import AuthService from './Services/AuthService.js';
 import EditUser from './Pages/EditUser.jsx';
+import FicharList from './Pages/FicharList.jsx';
 
 
 
@@ -101,11 +102,11 @@ function AppLayout() {
             exact path="/edit-user"
             render={() => (isAuthenticated ? <EditUser /> : <Redirect to="/" />)}
           />
-
+          <Route
+            exact path="/ficharList"
+            render={() => (isAuthenticated ? <FicharList /> : <Redirect to="/" />)}
+          />
           {/* Puedes agregar más rutas aquí */}
-          {/* 
-          <Route path="/configuracion" component={Configuracion} />
-          */}
         </Switch>
       </div>
     </div>

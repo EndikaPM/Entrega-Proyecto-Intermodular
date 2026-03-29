@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom';
 import JornadaService from '../Services/JornadaService.js';
 
 
-
-
 function Dashboard() {
     const history = useHistory();
     const [texto, setTexto] = useState('')
@@ -46,14 +44,14 @@ function Dashboard() {
             setError('');
             
             console.log("Fichando para: ", usuario.dni);
-            const resultadoFichar = await JornadaService.ficharEntradaSalida(usuario.dni);
+            const resultadoFichar = await JornadaService.fichar(usuario.dni);
             console.log('Resultado del fichaje:', resultadoFichar);
 
             console.log('Fichando entrada/salida...');
             setEnLinea(!enLinea);
         } catch (error) {
             console.error('Error al fichar entrada/salida:', error);
-            setError('Error al fichar entrada/salida. Inténtalo de nuevo.', error);
+            setError('Error al fichar entrada/salida. Inténtalo de nuevo.');
             setTimeout(() => {setError('');}, 5000);
         }finally {
             setCargando(false);

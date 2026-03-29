@@ -8,20 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Controller de Autenticación.
- *
- * Endpoints:
- * - POST /api/auth/login → Iniciar sesión
- *
- * FLUJO DE LOGIN:
- * 1. Frontend envía POST a /api/auth/login con { email, password }
- * 2. Este controller recibe el LoginRequest
- * 3. Llama al AuthService para validar credenciales
- * 4. AuthService busca en la BD y verifica
- * 5. Si OK: devuelve LoginResponse (datos del usuario)
- * 6. Si ERROR: devuelve 401 Unauthorized
- */
 
 @RestController
 @RequestMapping("/api/auth")

@@ -1,0 +1,31 @@
+services:
+  db-mysql:
+    image: mysql:8.0
+    container_name: mysql-timely
+    restart: always
+    environment:
+      MYSQL_DATABASE: Timely
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: usuario
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d # Para cargar tu SQL automáticamente
+
+  backend-spring:
+    build: .
+    container_name: spring-timely
+    ports:
+      - 8081:8081
+    depends_on:
+      - db-mysql
+    environment:
+      # Aquí "pisamos" el localhost de tu properties por el nombre del servicio de arriba
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/Timely?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=usuario
+      - SPRING_DATASOURCE_PASSWORD=usuario
+
+volumes:
+  mysql_data:
