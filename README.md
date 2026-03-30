@@ -162,7 +162,6 @@ Abre tu navegador y ve a `http://localhost:5173`
 - ✅ **Fichar entrada/salida** - Registro de jornada laboral con botón
 - ✅ **Historial de fichajes** - Visualización de fichajes anteriores
 - ✅ **Filtrar Fichajes** - Visualización de fichajes Atraves de filtro fecha/nombre
-
 ---
 
 ## 🚧 Funcionalidades Pendientes
