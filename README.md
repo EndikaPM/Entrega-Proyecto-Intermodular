@@ -159,13 +159,16 @@ Abre tu navegador y ve a `http://localhost:5173`
 - ✅ **Persistencia de datos** - Conexión con MySQL mediante JPA
 - ✅ **Validación de credenciales** - Autenticación segura
 - ✅ **CORS habilitado** - Comunicación frontend-backend
+- ✅ **Fichar entrada/salida** - Registro de jornada laboral con botón
+- ✅ **Historial de fichajes** - Visualización de fichajes anteriores
+- ✅ **Filtrar Fichajes** - Visualización de fichajes Atraves de filtro fecha/nombre
 
 ---
 
 ## 🚧 Funcionalidades Pendientes
 
 ### **Sistema de Fichajes**
-- ⏳ **Fichar entrada/salida** - Registro de jornada laboral con botón
+- ⏳ **Editar Fichajes de usuario** - Editar jornada laboral con inputs y un botón
 - ⏳ **Historial de fichajes** - Visualización de fichajes anteriores
 
 ### **Gestión de Ausencias**
