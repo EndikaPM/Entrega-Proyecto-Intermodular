@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import JornadaService from '../Services/JornadaService';
 import AuthService from '../Services/AuthService';
 
@@ -25,11 +25,20 @@ function FicharList() {
                 setError('No hay sesión activa.');
                 return;
             }
-            const respuesta = await JornadaService.getFichajesDNI(usuarioLogeado.dni);
-            console.log("Respesta de SpringBoot: ", respuesta);
-            console.table(respuesta.data);
-            
-            setFichajes(respuesta.data);
+            if (usuarioLogeado.userType === 'Administrador') {
+                const respuesta = await JornadaService.getAll();
+                console.log("Respesta de SpringBoot: ", respuesta);
+                console.table(respuesta.data);
+                
+                setFichajes(respuesta.data);
+                return;
+            }else {
+                const respuesta = await JornadaService.getFichajesDNI(usuarioLogeado.dni);
+                console.log("Respesta de SpringBoot: ", respuesta);
+                console.table(respuesta.data);
+                
+                setFichajes(respuesta.data);
+            }
         } catch (error) {
             console.error('Error al cargar los fichajes:', error);
             setError('Error al cargar los fichajes. Inténtalo de nuevo.');
@@ -67,6 +76,18 @@ function FicharList() {
         }
     };
 
+    /*
+    useMemo es un Hook que sirve para memorizar el resultado de una función. Imagínatelo como una "caché" inteligente.
+    *En lugar de recalcular el valor en cada renderizado, React guarda el resultado en
+    *memoria y solo lo vuelve a calcular si las dependencias que tú le indiques cambian
+    */
+    const filtrarFichajes = useMemo(() => {
+        let filtra = []
+        filtra =filtroFecha ? fichajes.filter(f => f.fechaActual === filtroFecha) : fichajes;
+        filtra = filtroNombre ? filtra.filter(f => f.usuario?.firstName.toLowerCase().includes(filtroNombre.toLowerCase())) : filtra;
+        return filtra;
+    }, [fichajes, filtroFecha, filtroNombre]);// Solo se recalcula si algo de esto cambia
+
     if (cargando) {
         return (
             <div className="flex justify-center items-center h-screen text-white bg-gray-900">
@@ -96,20 +117,26 @@ function FicharList() {
                         >Eliminar
                         </button>
 
-                        <div>
+                        <div className='gap-2 flex items-center'>
                             <label className=" mx-5 px5" htmlFor="filtroNombre">Buscar por nombre</label>
-                            <input className="border border-white p-1 rounded" type="text" id="filtroNombre" />
+                            <input className="border border-white p-1 rounded" type="text" id="filtroNombre" value={filtroNombre} 
+                                onChange={(e) => setFiltroNombre(e.target.value)} />
+                                <button className='border rounded border-black bg-yellow-700 py-8 px-8' onClick={() => setFiltroNombre('')}>Limpiar</button>
                         </div>
-                        <div>
-                        <label className=" mx-5 px5"htmlFor='filtroFecha'>Buscar un registro por fecha</label>
-                        <input className="border border-white p-1 rounded" type="date" id="filtroFecha" />
+                        <div className='gap-2 flex items-center'>
+                            <label className=" mx-5 px5"htmlFor='filtroFecha'>Buscar un registro por fecha</label>
+                            <input className="border border-white p-1 rounded" type="date" id="filtroFecha" value={filtroFecha} 
+                                onChange={(e) => setFiltroFecha(e.target.value)} />
+                                <button className='border rounded bg-yellow-700 py-8 px-8' onClick={() => setFiltroFecha('')}>Limpiar</button>
                         </div>
                     </>
                 ):
                 <>
                     <div className='flex flex-col'>
                         <label htmlFor='filtroFecha'className="text-sm">Buscar un registro por fecha</label>
-                        <input type="date" id="filtroFecha" className="text-black p-1 rounded"/>
+                        <input type="date" id="filtroFecha" className="text-black p-1 rounded" value={filtroFecha} 
+                            onChange={(e) => setFiltroFecha(e.target.value)} />
+                            <button className='border rounded bg-yellow-700 py-8 px-8' onClick={() => setFiltroFecha('')}>Limpiar</button>
                     </div>
                 </>}
                 </div>
@@ -131,7 +158,7 @@ function FicharList() {
                                         <td colSpan="5" className="border border-white p-3">No hay fichajes disponibles.</td>
                                     </tr>
                                 ) : (
-                                    fichajes.map((fichaje) => {
+                                    filtrarFichajes.map((fichaje) => {
                                         //Comprobamos si la fila ha sido seleccionada para aplicar un estilo diferente
                                         const esSeleccionado = fichajeSeleccionado?.id === fichaje.id;
 
@@ -143,7 +170,7 @@ function FicharList() {
                                         className={`
                                             cursor-pointer transition-colors border border-white
                                             ${esSeleccionado 
-                                                ? 'bg-white text-black' 
+                                                ? 'bg-gray-500 text-black' 
                                                 : 'bg-black text-white hover:bg-gray-600'}`
                                             } >
                                             <td className="border border-white p-3">{fichaje.usuario?.firstName}</td>
