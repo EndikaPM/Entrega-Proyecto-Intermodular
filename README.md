@@ -1,8 +1,8 @@
 # 🕐 Timely - Sistema de Control de Jornada Laboral
 ## 🖼️ Capturas de Pantalla
-![Dashboard de Timely](./capturas/captura2.png)
-![Loging](./capturas/captura1.png)
-![Singin](./capturas/captura3.png)
+![Dashboard de Timely](./Doc/captura2.png)
+![Loging](./Doc/captura1.png)
+![Singin](./Doc/captura3.png)
 
 
 ## 📋 Descripción
@@ -159,14 +159,17 @@ Abre tu navegador y ve a `http://localhost:5173`
 - ✅ **Persistencia de datos** - Conexión con MySQL mediante JPA
 - ✅ **Validación de credenciales** - Autenticación segura
 - ✅ **CORS habilitado** - Comunicación frontend-backend
-
+- ✅ **Fichar entrada/salida** - Registro de jornada laboral con botón
+- ✅ **Historial de fichajes** - Visualización de fichajes anteriores
+- ✅ **Filtrar Fichajes** - Visualización de fichajes Atraves de filtro fecha/nombre
+- ✅ **Mensajería en tiempo real** - Chat con WebSocket/Socket.io
 ---
 
 ## 🚧 Funcionalidades Pendientes
 
 ### **Sistema de Fichajes**
-- ⏳ **Fichar entrada/salida** - Registro de jornada laboral con botón
-- ⏳ **Historial de fichajes** - Visualización de fichajes anteriores
+- ⏳ **Editar Fichajes de usuario** - Editar jornada laboral con inputs y un botón
+- ⏳ **Los Admin y Jefes Tendran privilegios de Eliminar y editar** - Visualización de fichajes anteriores para editarlos
 
 ### **Gestión de Ausencias**
 - ⏳ **Registro de ausencias** - Vacaciones, bajas, permisos
@@ -174,7 +177,6 @@ Abre tu navegador y ve a `http://localhost:5173`
 
 
 ### **Chat Interno** (Opcional)
-- ⏳ **Mensajería en tiempo real** - Chat con WebSocket/Socket.io
 - ⏳ **Notificaciones** - Alertas de mensajes y eventos
 
 ---

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+    <h2>Probando Chat Microservicio</h2>
+    <input type="text" id="dni" placeholder="Tu DNI">
+    <input type="text" id="mensaje" placeholder="Escribe algo...">
+    <button onclick="enviar()">Enviar</button>
+    <ul id="lista-mensajes"></ul>
+
+    <script>
+        var stompClient = null;
+
+        // 1. Conectar al WebSocket
+        var socket = new SockJS('/chat-socket');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+            console.log('Conectado: ' + frame);
+
+            // 2. Suscribirse al canal de salida
+            stompClient.subscribe('/topic/mensajes', function (respuesta) {
+                var msg = JSON.parse(respuesta.body);
+                mostrarMensajesEnPantalla(msg);
+            });
+        });
+
+        function enviar() {
+            var dni = document.getElementById('dni').value;
+            var texto = document.getElementById('mensaje').value;
+
+            if(!dni || !texto) return alert("Rellena los campos");
+
+            stompClient.send("/app/enviar-mensaje", {},
+                JSON.stringify({'usuarioDni': dni, 'contenido': texto}));
+
+            document.getElementById('mensaje').value = ""; // Limpiar el input al enviar
+        }
+
+        function mostrarMensajesEnPantalla(msg) {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(msg.usuarioDni + ": " + msg.contenido));
+            document.getElementById('lista-mensajes').appendChild(li);
+        }
+
+        function cargarHistorial() {
+            fetch("/api/mensajes")
+                .then(response => {
+                    if (!response.ok) throw new Error("Error en la red");
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Datos recibidos:", data);
+                    if (Array.isArray(data)) {
+                        // Limpiamos la lista por si acaso antes de cargar
+                        document.getElementById('lista-mensajes').innerHTML = "";
+                        data.forEach(msg => mostrarMensajesEnPantalla(msg));
+                    }
+                })
+                .catch(error => console.error("Error cargando historial:", error));
+        }
+
+
+        window.onload = cargarHistorial;
+    </script>
+</body>
+</html>
