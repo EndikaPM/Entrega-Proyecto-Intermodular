@@ -4,123 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/public/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Components/Header.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Components/Navigation.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Pages/Dasboard.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Pages/EditUser.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Pages/FicharList.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Pages/Login.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Pages/Register.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Services/Api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Services/AuthService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/Services/JornadaService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/assets/favicon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/assets/react.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/Dashboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/EditUser.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/Header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/Login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/Navigation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/src/styles/Register.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontenTimely/vite.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/init/Timely.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/ProyectoTimelyApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/Service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/AusenciaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/DepartamentoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/EmpresaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/HorasTrabajoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/JornadaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/controller/UsuarioController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Ausencia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/AusenciaType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Departamento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRequisitoDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Dto/LoginRespuestaDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Empresa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/HorasTrabajo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Jornada.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/UserType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/model/Usuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/repository/AusenciaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/repository/DepartamentoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/repository/EmpresaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/repository/HorasTrabajoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/repository/JornadaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/repository/UsuarioRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/util/CheckDni.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/java/com/timely/ProyectoTimely/util/FechasUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/src/test/java/com/timely/ProyectoTimely/ProyectoTimelyApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/ProyectoTimely-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/ProyectoTimely-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/ProyectoTimelyApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/Service/AuthService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/AusenciaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/AuthController$ErrorResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/DepartamentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/EmpresaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/HorasTrabajoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/JornadaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/controller/UsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Ausencia.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/AusenciaType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Departamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Dto/LoginRequisitoDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Dto/LoginRespuestaDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Empresa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/HorasTrabajo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Jornada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/UserType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/model/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/repository/AusenciaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/repository/DepartamentoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/repository/EmpresaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/repository/HorasTrabajoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/repository/JornadaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/repository/UsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/util/CheckDni.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/classes/com/timely/ProyectoTimely/util/FechasUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/surefire-reports/TEST-com.timely.ProyectoTimely.ProyectoTimelyApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/surefire-reports/com.timely.ProyectoTimely.ProyectoTimelyApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProyectoTimely/target/test-classes/com/timely/ProyectoTimely/ProyectoTimelyApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../capturas/captura1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../capturas/captura2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../capturas/captura3.png" beforeDir="false" />
-    </list>
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,7 +110,7 @@
       <workItem from="1774969131923" duration="13605000" />
       <workItem from="1775037616041" duration="1318000" />
       <workItem from="1775049662699" duration="26000" />
-      <workItem from="1775061927712" duration="1379000" />
+      <workItem from="1775061927712" duration="1383000" />
     </task>
     <servers />
   </component>
