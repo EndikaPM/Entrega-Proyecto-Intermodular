@@ -64,6 +64,7 @@ public class UsuarioController {
             usuarioExitente.setBirthday(usuarioNuevo.getBirthday());
             usuarioExitente.setContractDate(usuarioNuevo.getContractDate());
             usuarioExitente.setSocialSecurity(usuarioExitente.getSocialSecurity());
+            usuarioExitente.setDepartamento(usuarioNuevo.getDepartamento());
 
             //Aqí guardo lo modificado
             Usuario actualizado = usuarioRepository.save(usuarioExitente);

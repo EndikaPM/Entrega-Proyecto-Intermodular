@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import AuthService from '../Services/AuthService';
+import EmpresaDepartamento from './EmpresaDepartamento';
 import '../styles/EditUser.css';
+import EmpresaService from '../Services/EmpresaService';
 
 function EditUser() {
     const history = useHistory();
@@ -10,7 +12,7 @@ function EditUser() {
     const [cargandoDatos, setCargandoDatos] = useState(true);
     const [error, setError] = useState('');
     const [exito, setExito] = useState('');
-
+    const [departamentos, setDepartamentos] = useState([]);
     const [datos, setDatos] = useState({
         nombre: '',
         apellidos: '',
@@ -63,6 +65,30 @@ function EditUser() {
         cargarDatosUsuario();
     }, [history]);
 
+    useEffect(() => {
+        const cargarDepartamentos = async () => {
+            try {
+                const response = await EmpresaService.getAllDepartamentos();
+                setDepartamentos(response.data);
+            } catch (error) {
+                console.error('Error al cargar departamentos:', error);
+            }
+        };
+
+        cargarDepartamentos();
+    }, []);
+
+    const handlerDepar = (e) => {
+        const departamentoId = e.target.value;
+        setDatos((prevDatos) => ({
+            ...prevDatos,
+            departamento: departamentoId
+        }));
+        if (error) setError('');
+        if (exito) setExito('');
+    };
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setDatos((prevDatos) => ({
@@ -107,7 +133,7 @@ function EditUser() {
                 birthday: datos.fechaNacimiento || null,
                 contractDate: datos.fechaContratacion || null,
                 socialSecurity: datos.numSS|| null,
-                department: datos.departamento
+                departamento: datos.departamento ? { id: Number(datos.departamento) } : null
             };
 
             console.log('Datos a actualizar:', datosActualizados);
@@ -310,6 +336,22 @@ function EditUser() {
                                         placeholder="12 34567890 12"
                                         disabled={cargando}
                                     />
+
+                                    <label htmlFor="departamento" className="register-label">Departamento</label>
+                                    <select id="departamento"
+                                        name="departamento"
+                                        className="register-input"
+                                        value={datos.departamento}
+                                        onChange={handlerDepar}
+                                        disabled={cargando}
+                                    >
+                                        <option value="">Selecciona departamento</option>
+                                        {departamentos.map((depar) => (
+                                            <option key={depar.id} value={depar.id}>
+                                                {depar.nombreDepar}
+                                            </option>
+                                        ))}
+                                    </select>
 
                                     <label htmlFor="tipoUsuario" className="register-label">Tipo de Usuario</label>
                                     <input

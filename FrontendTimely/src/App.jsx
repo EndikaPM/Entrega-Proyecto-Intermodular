@@ -14,6 +14,7 @@ import Dashboard from './Pages/Dasboard.jsx';
 import AuthService from './Services/AuthService.js';
 import EditUser from './Pages/EditUser.jsx';
 import FicharList from './Pages/FicharList.jsx';
+import EmpresaDepartamento from './Pages/EmpresaDepartamento.jsx';
 
 
 
@@ -105,6 +106,10 @@ function AppLayout() {
           <Route
             exact path="/ficharList"
             render={() => (isAuthenticated ? <FicharList /> : <Redirect to="/" />)}
+          />
+          <Route
+            exact path="/EmpresaDepartamento"
+            render={() => (isAuthenticated ? <EmpresaDepartamento /> : <Redirect to="/" />)}
           />
           {/* Puedes agregar más rutas aquí */}
         </Switch>

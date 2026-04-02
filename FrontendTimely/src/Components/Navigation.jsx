@@ -41,6 +41,12 @@ function Navigation({onLogout}) {
                 <Link to = "/ficharList" className="nav-link">
                     Ver Fichajes
                 </Link>
+
+                {AuthService.getCurrentUser()?.userType === 'Administrador' && (
+                    <Link to = "/EmpresaDepartamento" className="nav-link-admin">
+                        Crear Empresa/Departamento
+                    </Link>
+                )}
             </div>
         </nav>
     );
