@@ -163,21 +163,20 @@ Abre tu navegador y ve a `http://localhost:5173`
 - ✅ **Historial de fichajes** - Visualización de fichajes anteriores
 - ✅ **Filtrar Fichajes** - Visualización de fichajes Atraves de filtro fecha/nombre
 - ✅ **Mensajería en tiempo real** - Chat con WebSocket/Socket.io
+- ✅ **Editar Fichajes de usuario** - Editar jornada laboral con inputs y un botón
+- ✅ **Los Admin y Jefes Tendran privilegios de Eliminar y editar** - Visualización de fichajes anteriores para editarlos
 ---
 
 ## 🚧 Funcionalidades Pendientes
 
-### **Sistema de Fichajes**
-- ⏳ **Editar Fichajes de usuario** - Editar jornada laboral con inputs y un botón
-- ⏳ **Los Admin y Jefes Tendran privilegios de Eliminar y editar** - Visualización de fichajes anteriores para editarlos
+### **Sistema de Maching Learning**
+- ⏳**Generar una predición de ausencias futuras** - con una fecha 
+- ⏳**Gestión Empresa y departamento** - Crear y editar empresas
 
 ### **Gestión de Ausencias**
 - ⏳ **Registro de ausencias** - Vacaciones, bajas, permisos
 - ⏳ **Visualización de ausencias** - Vista de ausencias del equipo
 
-
-### **Chat Interno** (Opcional)
-- ⏳ **Notificaciones** - Alertas de mensajes y eventos
 
 ---
 ## 👨‍💻 Autor
