@@ -38,14 +38,26 @@ function Navigation({onLogout}) {
                     Dashboard
                 </Link>
 
+                <Link 
+                    to="/ausencias" 
+                    className="nav-link"
+                >
+                    Solicitar Ausencia
+                </Link>
+
                 <Link to = "/ficharList" className="nav-link">
                     Ver Fichajes
                 </Link>
 
                 {AuthService.getCurrentUser()?.userType === 'Administrador' && (
-                    <Link to = "/EmpresaDepartamento" className="nav-link-admin">
+                    <>
+                    <Link to = "/empresaDepartamento" className="nav-link-admin">
                         Crear Empresa/Departamento
                     </Link>
+                    <Link to = "/prediccion" className="nav-link-admin">
+                        Predicción Ausencias
+                    </Link>
+                    </>
                 )}
             </div>
         </nav>

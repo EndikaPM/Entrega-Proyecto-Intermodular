@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Doc/fichajes_dataset(1).csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Components/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Components/Navigation.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +117,9 @@
       <workItem from="1775061927712" duration="1383000" />
       <workItem from="1775129378891" duration="657000" />
       <workItem from="1775143277998" duration="5188000" />
+      <workItem from="1775322050044" duration="3668000" />
+      <workItem from="1775491120513" duration="3000" />
+      <workItem from="1775502315789" duration="1237000" />
     </task>
     <servers />
   </component>

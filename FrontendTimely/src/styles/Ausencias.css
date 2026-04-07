@@ -1,0 +1,53 @@
+/* Centra todo el contenido en la pantalla */
+.ausencias-container {
+    max-width: 900px;
+    margin: 40px auto; /* Centrado horizontal y espacio arriba/abajo */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    border: 2px solid #333; /* Borde del contenedor principal */
+    border-radius: 8px;
+    background-color: #086d65;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilo para el formulario */
+.ausencias-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd; /* Línea divisoria */
+}
+
+/* Estilos de la tabla con bordes visibles */
+.ausencias-table {
+    width: 100%;
+    border-collapse: collapse; /* Para que los bordes no sean dobles */
+    margin-top: 20px;
+    background-color: rgb(31, 179, 193);
+}
+
+.ausencias-table th, 
+.ausencias-table td {
+    border: 1px solid #ccc; /* Bordes de las celdas */
+    padding: 12px;
+    text-align: left;
+}
+
+.ausencias-table th {
+    background-color: #079e85;
+    font-weight: bold;
+}
+
+/* Un toque de color para el error */
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

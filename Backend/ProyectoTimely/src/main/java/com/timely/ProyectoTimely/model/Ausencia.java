@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "Ausencias")  // ← Con mayúscula, tal como está en tu BD
+@Table(name = "ausencias")
 public class Ausencia {
 
     @Id
@@ -28,6 +28,9 @@ public class Ausencia {
     @Enumerated(EnumType.STRING)
     @Column(name = "motivo", nullable = false)
     private AusenciaType motivo;
+
+    @Column(name = "descripcion", nullable=false)
+    private String descrocion;
 
 
     public Ausencia() {
@@ -76,6 +79,14 @@ public class Ausencia {
 
     public AusenciaType getMotivo() {
         return motivo;
+    }
+
+    public String getDescrocion() {
+        return descrocion;
+    }
+
+    public void setDescrocion(String descrocion) {
+        this.descrocion = descrocion;
     }
 
     public void setMotivo(AusenciaType motivo) {

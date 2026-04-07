@@ -15,6 +15,8 @@ import AuthService from './Services/AuthService.js';
 import EditUser from './Pages/EditUser.jsx';
 import FicharList from './Pages/FicharList.jsx';
 import EmpresaDepartamento from './Pages/EmpresaDepartamento.jsx';
+import Ausencias from './Pages/Ausencias.jsx';
+import MlPredicion from './Components/MlPredicion.jsx';
 
 
 
@@ -104,12 +106,20 @@ function AppLayout() {
             render={() => (isAuthenticated ? <EditUser /> : <Redirect to="/" />)}
           />
           <Route
+            exact path="/ausencias"
+            render={() => (isAuthenticated ? <Ausencias /> : <Redirect to="/" />)}
+          />
+          <Route
             exact path="/ficharList"
             render={() => (isAuthenticated ? <FicharList /> : <Redirect to="/" />)}
           />
           <Route
-            exact path="/EmpresaDepartamento"
+            exact path="/empresaDepartamento"
             render={() => (isAuthenticated ? <EmpresaDepartamento /> : <Redirect to="/" />)}
+          />
+          <Route
+            exact path="/prediccion"
+            render={() => (isAuthenticated ? <MlPredicion /> : <Redirect to="/" />)}
           />
           {/* Puedes agregar más rutas aquí */}
         </Switch>
