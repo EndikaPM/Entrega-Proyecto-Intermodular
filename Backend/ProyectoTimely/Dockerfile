@@ -1,5 +1,5 @@
 #Imagen base de Java 25
-FROM openjdk:25-slim-bullseye
+FROM eclipse-temurin:21-jdk-jammy
 
 #Creamos la carpeta de trabajo
 WORKDIR /timely

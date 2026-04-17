@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8081/api';
+const host = "localhost";
 
-const Api= axios.create({
-    baseURL: API_URL,
+const Api = (port) => axios.create({
+    baseURL: `http://${host}:${port}/api/v1`,
     headers: {
         'Content-Type': 'application/json',
     },

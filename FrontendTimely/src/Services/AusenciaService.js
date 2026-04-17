@@ -1,29 +1,31 @@
-import Api  from "./Api";
+import Api from "./Api";
+
+const api_ausencia = Api(8081);
 
 const AusenciaService = {
 
     getAll() {
-        return Api.get('/ausencias');
+        return api_ausencia.get('/ausencias');
     },
-    
+
     getById(id) {
-        return Api.get(`/ausencias/${id}`);
+        return api_ausencia.get(`/ausencias/${id}`);
     },
 
     getByUsuario(dni) {
-        return Api.get(`/ausencias/usuario/${dni}`);
+        return api_ausencia.get(`/ausencias/usuario/${dni}`);
     },
 
     create(ausencia) {
-        return Api.post('/ausencias', ausencia);
+        return api_ausencia.post('/ausencias', ausencia);
     },
 
     update(id, ausencia) {
-        return Api.put(`/ausencias/${id}`, ausencia);
+        return api_ausencia.put(`/ausencias/${id}`, ausencia);
     },
-    
+
     delete(id) {
-        return Api.delete(`/ausencias/${id}`);
+        return api_ausencia.delete(`/ausencias/${id}`);
     }
 };
 

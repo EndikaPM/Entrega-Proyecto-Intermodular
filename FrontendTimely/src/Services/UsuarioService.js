@@ -1,13 +1,15 @@
 import Api from "./Api";
 
+const api_usuario = Api(8081);
+
 const UsuarioService = {
-    
+
     getAll() {
-        return Api.get('/usuarios');
+        return api_usuario.get('/usuarios');
     },
-    
+
     getByDNI(dni) {
-        return Api.get(`/usuarios/${dni}`);
+        return api_usuario.get(`/usuarios/${dni}`);
     }
 };
 

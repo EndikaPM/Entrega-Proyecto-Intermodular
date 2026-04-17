@@ -1,9 +1,11 @@
-import ApiMensaje from "./ApiMensaje";
+import Api from "./Api";
+
+const api_chat = Api(8082);
 
 const ChatService = {
-    
+
     obtenerMensajes: () => {
-        return ApiMensaje.get('/api/mensajes');
+        return api_chat.get('/mensajes');
     },
 };
 

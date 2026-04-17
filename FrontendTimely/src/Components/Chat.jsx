@@ -4,7 +4,7 @@ import Stomp from 'stompjs';
 import ChatService from '../Services/ChatService.js';
 import AuthService from '../Services/AuthService.js';
 import '../styles/Dashboard.css';
-import ApiMensaje from '../Services/ApiMensaje.js';
+import ApiMensaje from '../Services/Api.js';
 import UsuarioService from '../Services/UsuarioService.js';
 
 function Chat() {
