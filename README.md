@@ -195,6 +195,6 @@ Este proyecto es parte de un trabajo académico y está disponible únicamente c
 
 <div align="center">
 
-**⭐ Hecho con ❤️ usando React y Spring Boot ⭐**
+**Hecho usando React y Spring Boot**
 
 </div>

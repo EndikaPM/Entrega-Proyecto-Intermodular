@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/jornadas")
+@RequestMapping("/api/v1/jornadas")
 @CrossOrigin(origins = "*")
 public class JornadaController {
 

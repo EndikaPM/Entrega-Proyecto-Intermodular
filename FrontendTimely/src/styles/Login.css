@@ -30,6 +30,8 @@
 }
 
 .login-side-title {
+    text-align: left;
+    color: var(--text-primary);
     font-size: clamp(2rem, 4vw, 3.4rem);
     line-height: 1.05;
 }

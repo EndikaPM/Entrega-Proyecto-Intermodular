@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Components/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Components/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Components/MlPredicion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Components/MlPredicion.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/ApiMensaje.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AusenciaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AusenciaService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AuthService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/ChatService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/ChatService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/EmpresaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/EmpresaService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/JornadaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/JornadaService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/MlService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/MlService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/UsuarioService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/UsuarioService.js" afterDir="false" />
-    </list>
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,6 +117,8 @@
       <workItem from="1775491120513" duration="3000" />
       <workItem from="1775502315789" duration="1237000" />
       <workItem from="1776369041129" duration="305000" />
+      <workItem from="1776676327485" duration="10000" />
+      <workItem from="1776677607382" duration="4663000" />
     </task>
     <servers />
   </component>

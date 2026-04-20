@@ -4,6 +4,7 @@ import AuthService from '../Services/AuthService.js';
 import { useHistory } from 'react-router-dom';
 import JornadaService from '../Services/JornadaService.js';
 import Chat from '../Components/Chat.jsx';
+import ChatErrorBoundary from '../Components/ChatErrorBoundary.jsx';
 
 
 function Dashboard() {
@@ -71,7 +72,9 @@ function Dashboard() {
 
             {/* Columna derecha - 2/3 del espacio */}
             <div className="columna-derecha">
+                <ChatErrorBoundary>{/* evita que un fallo en el chat rompa toda la página, mostrando un mensaje amigable en su lugar */}
                 <Chat usuario={AuthService.getCurrentUser()?.dni} />
+                </ChatErrorBoundary>{/* captura errores de renderizado del arbol hijo */}
                 <div className="error-container">
                     {error && <p className="error">{error}</p>}
                 </div>

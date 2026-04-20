@@ -4,7 +4,7 @@ import Stomp from 'stompjs';
 import ChatService from '../Services/ChatService.js';
 import AuthService from '../Services/AuthService.js';
 import '../styles/Dashboard.css';
-import ApiMensaje from '../Services/Api.js';
+import Api from '../Services/Api.js';
 import UsuarioService from '../Services/UsuarioService.js';
 
 function Chat() {
@@ -12,7 +12,9 @@ function Chat() {
     const [nuevoMensaje, setNuevoMensaje] = useState('');
     const stompClientRef = useRef(null);
     const [nombreUsuario, setNombreUsuario] = useState({});
-    
+    const [chatDisponible, setChatDisponible] = useState(true);
+    const apiChat = Api(8082);
+
 
     useEffect(() => {
         //Descargar los Mensajes
@@ -26,7 +28,7 @@ function Chat() {
 
         //Conectar a WebSocket
         let isMounted = true; // Para evitar actualizaciones si el componente se desmonta antes de la respuesta
-        const socket = new SockJS(`${ApiMensaje.defaults.baseURL}chat-socket`);
+        const socket = new SockJS(`${apiChat.defaults.baseURL}/chat-socket`);
         const stompClient = Stomp.over(socket);
         stompClientRef.current = stompClient;
 

@@ -68,7 +68,7 @@ const register = async (userData) => {
             departamento: userData.department ? { id: userData.department } : { id: 1 }, // Insertamos un objeto Departamento o un id por defecto
             userType: 'Empleado'  // Tipo de usuario por defecto
         };
-        const response = await Api.post('/usuarios', datosRegistro);//axios.post esto lo usauos para hablar con el microservicio
+        const response = await api_auth.post('/usuarios', datosRegistro);//axios.post esto lo usauos para hablar con el microservicio
         return response.data;
     } catch (error) {
         throw error.response?.data?.error || 'Error al registrar. Intenta de nuevo.';
@@ -78,7 +78,7 @@ const register = async (userData) => {
 // MÉTODO PARA ACTUALIZAR PERFIL
 const updateProfile = async (dni, datosActualizados) => {
     try {
-        const response = await Api.put(`/usuarios/${dni}`, datosActualizados); // axios.put para actualizar datos en el backend
+        const response = await api_auth.put(`/usuarios/${dni}`, datosActualizados); // axios.put para actualizar datos en el backend
 
         // Actualizar localStorage con los nuevos datos
         if (response.data) {// Si la actualización fue exitosa, actualizamos el usuario en localStorage

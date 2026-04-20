@@ -11,6 +11,7 @@ function FicharList() {
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState('');
     const [exito, setExito] = useState('');
+    
 
     const [datosJornada, setDatosJornada] = useState({
         usuarioModificador: '',

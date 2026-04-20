@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/horas-trabajo")
+@RequestMapping("/api/v1/horas-trabajo")
 @CrossOrigin(origins = "*")
 public class HorasTrabajoController {
 

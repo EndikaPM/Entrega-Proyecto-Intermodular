@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/ausencias")
+@RequestMapping("/api/v1/ausencias")
 @CrossOrigin(origins = "*")
 public class AusenciaController {
 

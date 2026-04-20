@@ -21,7 +21,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry){
         // Esta es la URL donde el frontend se conectará
-        registry.addEndpoint("/chat-socket").setAllowedOriginPatterns("*").withSockJS();
+        registry.addEndpoint("/api/v1/chat-socket").setAllowedOriginPatterns("*").withSockJS();
         //setAllowedOrigins("*"): Permite que cualquier web se conecte (útil en desarrollo).
         //withSockJS(): Es un "plan B". Si el navegador del usuario es viejo y no soporta WebSockets modernos,
         // usa esto para que el chat siga funcionando.
