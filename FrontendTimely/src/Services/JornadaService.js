@@ -15,7 +15,7 @@ const JornadaService = {
 
     // Fichar entrada/salida
     fichar(dni) {
-        return api_jornada.post('/jornadas/fichar', { dni });
+        return api_jornada.post('/jornadas/fichar', {dni});
     },
 
     // Verificar si está en línea

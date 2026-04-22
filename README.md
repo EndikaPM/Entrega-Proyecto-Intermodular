@@ -3,6 +3,8 @@
 ![Dashboard de Timely](./Doc/captura2.png)
 ![Loging](./Doc/captura1.png)
 ![Singin](./Doc/captura3.png)
+![Lista de fichages](./Doc/captura4.png)
+![Lista y solicitud de ausencia](./Doc/captura5.png)
 
 
 ## 📋 Descripción
@@ -135,8 +137,8 @@ La aplicación se abrirá en: `http://localhost:5173` (o el puerto que indique V
 Abre tu navegador y ve a `http://localhost:5173`
 
 **Credenciales de prueba:**
-- Email: `admin@gmail.com`
-- Password: `admin`
+- Email: `usuario.prueba1@gmail.com`
+- Password: `usuario1`
 
 ---
 
@@ -164,19 +166,24 @@ Abre tu navegador y ve a `http://localhost:5173`
 - ✅ **Filtrar Fichajes** - Visualización de fichajes Atraves de filtro fecha/nombre
 - ✅ **Mensajería en tiempo real** - Chat con WebSocket/Socket.io
 - ✅ **Editar Fichajes de usuario** - Editar jornada laboral con inputs y un botón
-- ✅ **Los Admin y Jefes Tendran privilegios de Eliminar y editar** - Visualización de fichajes anteriores para editarlos
+- ✅ **Los Admin y Jefes Tendran privilegios de Eliminar y editar** - Visualización de fichajes
+anteriores para editarlos
+- ✅ **Visualización de ausencias** - Vista de ausencias del equipo
+- ✅**Gestión Empresa y departamento** - Crear y editar empresas
 ---
 
 ## 🚧 Funcionalidades Pendientes
 
 ### **Sistema de Maching Learning**
 - ⏳**Generar una predición de ausencias futuras** - con una fecha 
-- ⏳**Gestión Empresa y departamento** - Crear y editar empresas
 
 ### **Gestión de Ausencias**
 - ⏳ **Registro de ausencias** - Vacaciones, bajas, permisos
-- ⏳ **Visualización de ausencias** - Vista de ausencias del equipo
+### **Migración para facilitar el estilo**
+- ⏳ **Migrar de CSS a TailwinCSS** - Por ahora solo tengo en Fichages List pero quiero migrar toda la app
 
+---
+## 🐞 Problemas conocidos
 
 ---
 ## 👨‍💻 Autor
