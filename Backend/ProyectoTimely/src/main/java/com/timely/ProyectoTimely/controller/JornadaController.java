@@ -1,5 +1,6 @@
 package com.timely.ProyectoTimely.controller;
 
+import com.timely.ProyectoTimely.Service.JornadaService;
 import com.timely.ProyectoTimely.model.Dto.UpdateJornadaRegistro;
 import com.timely.ProyectoTimely.model.Jornada;
 import com.timely.ProyectoTimely.model.Registro;
@@ -27,7 +28,8 @@ public class JornadaController {
     @Autowired
     private JornadaRepository jornadaRepository;
     @Autowired
-    private RegistroRepository registroRepository;
+    private JornadaService jornadaService;
+
 
     // GET /api/jornadas → Todas las jornadas
     @GetMapping
@@ -64,84 +66,34 @@ public class JornadaController {
         String dniUsuario = body.get("dni");
 
         if(dniUsuario == null || dniUsuario.isEmpty()){
-            return ResponseEntity.badRequest().body("El id no es valido");
+            return ResponseEntity.badRequest().body("El DNI es obligatorio");
         }
 
-        try{
-            LocalDate hoy = LocalDate.now();
+        try {
+            Jornada resultado = jornadaService.registrarFichaje(dniUsuario);
+            String tipo = (resultado.getHoraSalida() == null) ? "ENTRADA" : "SALIDA";
 
-
-            List<Jornada> jornadaHoy = jornadaRepository
-                    .findByUsuarioDniAndFechaActual(dniUsuario, hoy);
-
-
-            Optional<Jornada> jornadaSinSalida = jornadaHoy.stream()
-                    .filter(j -> j.getHoraSalida() == null).findFirst();
-
-
-            if (jornadaSinSalida.isPresent()){
-                Jornada jornada = jornadaSinSalida.get();
-                jornada.setHoraSalida(LocalTime.now());
-                Jornada jornadaActualizada = jornadaRepository.save(jornada);
-
-                return ResponseEntity.ok(Map.of(
-                        "tipo", "SALIDA",
-                        "jornada", jornadaActualizada,
-                        "mensaje", "Salida registrada: " + jornadaActualizada.getHoraSalida()
-                ));
-            }
-
-
-            Usuario dniUser = new Usuario();
-            dniUser.setDni(dniUsuario);
-
-            Jornada nuevaJornada = new Jornada(dniUser, hoy, LocalTime.now());
-            Jornada guardar = jornadaRepository.save(nuevaJornada);
-
-            return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(
-                    "tipo", "Entrada",
-                    "jornada", guardar,
-                    "mesaje", "Entrada registrada " + guardar.getHoraEntrada()
+            return ResponseEntity.ok(Map.of(
+                    "tipo", tipo,
+                    "jornada", resultado,
+                    "mensaje", tipo + " registrada a las " +
+                            (tipo.equals("ENTRADA") ? resultado.getHoraEntrada() : resultado.getHoraSalida())
             ));
-        }catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Map.of("error", "Error al fichar: " + e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 
     @Transactional
     @PutMapping("/{id}")
-    public ResponseEntity<Jornada> update(@PathVariable int id,
-                                          @RequestBody UpdateJornadaRegistro jornadaRegistro) {
+    public ResponseEntity<Jornada> update(@PathVariable int id, @RequestBody UpdateJornadaRegistro jornadaRegistro) {
 
-        //Aqui primero buscamos la jornada tal cual esta en la DB
-        Optional <Jornada> jornadaVieja = jornadaRepository.findById(id);
-        if (jornadaVieja.isEmpty()) {
+        try {
+            Jornada actualizada = jornadaService.actualizarJornada(id, jornadaRegistro);
+            return ResponseEntity.ok(actualizada);
+        } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
-        Jornada jornadaEnDB = jornadaVieja.get();
-
-        Registro temporalRegistro = new Registro();
-        temporalRegistro.setIdUsuarioModificador(jornadaRegistro.getJornada().getUsuario().getDni());
-        temporalRegistro.setFechaModificada(LocalDateTime.now());
-        temporalRegistro.setFechaAnterior(jornadaEnDB.getFechaActual());
-        temporalRegistro.setHoraEntradaAnterior(jornadaEnDB.getHoraEntrada());
-        temporalRegistro.setHoraSalidaAnterior(jornadaEnDB.getHoraSalida());
-        temporalRegistro.setJornada(jornadaEnDB);
-        temporalRegistro.setMotivo(jornadaRegistro.getMotivo());
-
-        registroRepository.save(temporalRegistro);
-
-        Jornada jornadaNueva = jornadaRegistro.getJornada();
-
-        jornadaEnDB.setFechaActual(jornadaNueva.getFechaActual());
-        jornadaEnDB.setHoraEntrada(jornadaNueva.getHoraEntrada());
-        jornadaEnDB.setHoraSalida(jornadaNueva.getHoraSalida());
-        jornadaEnDB.setModificado(true);
-
-        Jornada actualizada = jornadaRepository.save(jornadaEnDB);
-
-        return ResponseEntity.ok(actualizada);
     }
 
 

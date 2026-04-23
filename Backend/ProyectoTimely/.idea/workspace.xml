@@ -37,36 +37,113 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.ProyectoTimely [install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ProyectoTimelyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/endika/Entrega_proyectoIntermodular/ProyectoTimely&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AuthServiceTest.executor": "Run",
+    "JUnit.CheckDniTest.executor": "Run",
+    "JUnit.JornadaControllerTest.executor": "Run",
+    "JUnit.JornadaControllerTest.fichar_DebeCrearNuevaJornada_CuandoNoExisteFichajeHoy.executor": "Run",
+    "JUnit.JornadaServiceTest.executor": "Run",
+    "JUnit.ProyectoTimelyApplicationTests.executor": "Run",
+    "JUnit.java in ProyectoTimely.executor": "Coverage",
+    "Maven.ProyectoTimely [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.ProyectoTimelyApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/ProyectoTimely",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.java in ProyectoTimely">
+    <configuration name="AuthServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoTimely" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.timely.ProyectoTimely.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.timely.ProyectoTimely.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.timely.ProyectoTimely.Service.AuthServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckDniTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoTimely" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.timely.ProyectoTimely.Util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.timely.ProyectoTimely.Util" />
+      <option name="MAIN_CLASS_NAME" value="com.timely.ProyectoTimely.Util.CheckDniTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JornadaControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoTimely" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.timely.ProyectoTimely.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.timely.ProyectoTimely.Controller" />
+      <option name="MAIN_CLASS_NAME" value="com.timely.ProyectoTimely.Controller.JornadaControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JornadaControllerTest.fichar_DebeCrearNuevaJornada_CuandoNoExisteFichajeHoy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoTimely" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.timely.ProyectoTimely.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.timely.ProyectoTimely.Controller" />
+      <option name="MAIN_CLASS_NAME" value="com.timely.ProyectoTimely.Controller.JornadaControllerTest" />
+      <option name="METHOD_NAME" value="fichar_DebeCrearNuevaJornada_CuandoNoExisteFichajeHoy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in ProyectoTimely" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoTimely" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProyectoTimelyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="ProyectoTimely" />
@@ -75,6 +152,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.java in ProyectoTimely" />
+        <item itemvalue="JUnit.JornadaControllerTest.fichar_DebeCrearNuevaJornada_CuandoNoExisteFichajeHoy" />
+        <item itemvalue="JUnit.JornadaControllerTest" />
+        <item itemvalue="JUnit.CheckDniTest" />
+        <item itemvalue="JUnit.AuthServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -119,6 +205,8 @@
       <workItem from="1776369041129" duration="305000" />
       <workItem from="1776676327485" duration="10000" />
       <workItem from="1776677607382" duration="4663000" />
+      <workItem from="1776852163391" duration="630000" />
+      <workItem from="1776874615090" duration="9156000" />
     </task>
     <servers />
   </component>
@@ -128,5 +216,8 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProyectoTimely$java_in_ProyectoTimely.ic" NAME="java in ProyectoTimely Coverage Results" MODIFIED="1776883313749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

@@ -13,7 +13,7 @@ public class CheckDni {
     private static final String letrasOrdenadas = "TRWAGMYFPDXBNJZSQVHLCKE";
 
     public static boolean validDni(String dniComprovar) {
-        String dni = dniComprovar.toLowerCase();
+        String dni = dniComprovar.toUpperCase();
         if (dni.length() != 9) {
             return false;
         }
