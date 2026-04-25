@@ -60,12 +60,12 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/ProyectoTimely",
+    "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/Backend/Chat",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -74,7 +74,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in ProyectoTimely">
+  <component name="RunManager" selected="Spring Boot.ProyectoTimelyApplication">
     <configuration name="AuthServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProyectoTimely" />
       <extension name="coverage">
@@ -207,6 +207,9 @@
       <workItem from="1776677607382" duration="4663000" />
       <workItem from="1776852163391" duration="630000" />
       <workItem from="1776874615090" duration="9156000" />
+      <workItem from="1777111194399" duration="197000" />
+      <workItem from="1777111405152" duration="111000" />
+      <workItem from="1777111529777" duration="865000" />
     </task>
     <servers />
   </component>

@@ -4,10 +4,10 @@ import Api from '../Services/Api';
 const api_ml = Api(8001);
 
 const MlPrediccion = () => {
-    const [fecha, setFecha] = useState('');
+    const [fecha,     setFecha]     = useState('');
     const [resultado, setResultado] = useState(null);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [error,     setError]     = useState(null);
+    const [loading,   setLoading]   = useState(false);
 
     const predecir = async () => {
         if (!fecha) return;
@@ -15,18 +15,11 @@ const MlPrediccion = () => {
         setError(null);
         setResultado(null);
         try {
-            const res = await api_ml.post('/predecir', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fecha }),
-            });
-            if (!res.ok) {
-                const err = await res.json();
-                throw new Error(err.detail || 'Error del servidor');
-            }
-            setResultado(await res.json());
+            const res = await api_ml.post('/predecir', { fecha });
+            setResultado(res.data);
         } catch (e) {
-            setError(e.message);
+            const msg = e.response?.data?.detail || e.message || 'Error del servidor';
+            setError(msg);
         } finally {
             setLoading(false);
         }
@@ -34,8 +27,6 @@ const MlPrediccion = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] gap-8 p-6">
-
-            {/* Input + botón */}
             <div className="flex items-center gap-3">
                 <input
                     type="date"
@@ -52,35 +43,26 @@ const MlPrediccion = () => {
                 </button>
             </div>
 
-            {/* Error */}
-            {error && (
-                <p className="text-red-600 text-sm">{error}</p>
-            )}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
 
-            {/* Resultado */}
             {resultado && (
                 <div className="flex flex-col items-center gap-2">
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-gray-500 dark:text-gray-400 text-xl">
                         {resultado.dia_semana}, {resultado.fecha}
                     </p>
-
-                    {/* Número grande */}
-                    <span className={`text-8xl font-bold ${resultado.alerta ? 'text-red-500' : 'text-gray-800'}`}>
+                    <span className={`text-8xl font-bold ${resultado.alerta ? 'text-red-500' : 'text-gray-800 dark:text-white'}`}>
                         {resultado.ausencias}
                     </span>
-
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-500 dark:text-gray-400 text-xl">
                         personas se esperan ausentes ({resultado.porcentaje}% del equipo)
                     </p>
-
                     {resultado.alerta && (
-                        <span className="mt-2 bg-red-100 text-red-700 text-xs font-medium px-3 py-1 rounded-full">
+                        <span className="mt-2 bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300 text-xs font-medium px-3 py-1 rounded-full">
                             Alerta — más del 80% de ausencias
                         </span>
                     )}
                 </div>
             )}
-
         </div>
     );
 };
