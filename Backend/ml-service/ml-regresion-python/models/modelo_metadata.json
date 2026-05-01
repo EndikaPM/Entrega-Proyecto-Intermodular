@@ -1,0 +1,27 @@
+{
+  "tipo": "LinearRegression",
+  "fecha_train": "2026-04-25 13:11:44",
+  "n_empleados": 20,
+  "features": [
+    "dia_semana",
+    "mes",
+    "es_lunes",
+    "es_viernes",
+    "es_invierno",
+    "es_verano",
+    "es_festivo"
+  ],
+  "rmse": 0.448,
+  "r2": 0.9766,
+  "params_usados": {
+    "n_empleados": 20,
+    "n_dias": 300,
+    "seed": 42,
+    "w_base": 2.0,
+    "w_lunes": 1.5,
+    "w_viernes": 1.9,
+    "w_invierno": 1.5,
+    "w_verano": 0.5,
+    "ruido": 0.75
+  }
+}

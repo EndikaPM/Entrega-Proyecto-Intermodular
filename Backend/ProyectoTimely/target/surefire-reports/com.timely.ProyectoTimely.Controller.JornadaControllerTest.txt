@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.timely.ProyectoTimely.Controller.JornadaControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.889 s -- in com.timely.ProyectoTimely.Controller.JornadaControllerTest

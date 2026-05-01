@@ -16,7 +16,6 @@ import static com.timely.ProyectoTimely.util.CheckDni.validDni;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")
-@CrossOrigin(origins = "*")
 public class UsuarioController {
 
     @Autowired

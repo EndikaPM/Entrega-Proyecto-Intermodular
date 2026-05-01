@@ -26,7 +26,7 @@
 - **Spring Boot** 4.0.2 - Framework de Java para desarrollo de APIs REST
 - **Spring Data JPA** - Persistencia de datos con ORM
 - **Hibernate** 7.2.1 - Mapeo objeto-relacional
-- **MySQL** 5.5.5+ - Base de datos relacional
+- **MariaDB** 10.0.6+ - Base de datos relacional
 - **Maven** - Gestión de dependencias y construcción del proyecto
 
 ### **Herramientas de Desarrollo**

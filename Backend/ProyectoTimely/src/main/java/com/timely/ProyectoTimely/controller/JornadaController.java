@@ -22,7 +22,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/jornadas")
-@CrossOrigin(origins = "*")
 public class JornadaController {
 
     @Autowired

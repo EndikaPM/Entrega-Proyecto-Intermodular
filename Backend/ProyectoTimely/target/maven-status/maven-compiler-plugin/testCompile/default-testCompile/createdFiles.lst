@@ -1,1 +1,5 @@
+com/timely/ProyectoTimely/Controller/JornadaControllerTest.class
+com/timely/ProyectoTimely/Util/CheckDniTest.class
+com/timely/ProyectoTimely/Service/JornadaServiceTest.class
+com/timely/ProyectoTimely/Service/AuthServiceTest.class
 com/timely/ProyectoTimely/ProyectoTimelyApplicationTests.class

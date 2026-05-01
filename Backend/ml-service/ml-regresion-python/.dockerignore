@@ -1,0 +1,8 @@
+venvml-timely/
+bin/
+lib/
+share/
+pyvenv.cfg
+.git/
+__pycache__/
+*.pyc

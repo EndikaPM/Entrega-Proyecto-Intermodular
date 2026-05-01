@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="" />
+    <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Pages/Ausencias.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Pages/Ausencias.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +61,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.ProyectoTimelyApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/Backend/Chat",
     "nodejs_package_manager_path": "npm",
@@ -210,6 +213,10 @@
       <workItem from="1777111194399" duration="197000" />
       <workItem from="1777111405152" duration="111000" />
       <workItem from="1777111529777" duration="865000" />
+      <workItem from="1777554215838" duration="48000" />
+      <workItem from="1777624389374" duration="12000" />
+      <workItem from="1777630416007" duration="27000" />
+      <workItem from="1777630609928" duration="7274000" />
     </task>
     <servers />
   </component>

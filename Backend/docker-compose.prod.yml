@@ -1,0 +1,53 @@
+services:
+  db-mariadb:
+    image: mariadb:10.6
+    container_name: mariadb-timely
+    restart: always
+    environment:
+      MYSQL_DATABASE: Timely
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: usuario
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d 
+
+  backend-timely: 
+    image: endikaperezmas/backend-timely:latest
+    container_name: main-timely
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db-mariadb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://db-mariadb:3306/Timely?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=usuario
+      - SPRING_DATASOURCE_PASSWORD=usuario
+
+  backend-chat: 
+    image: endikaperezmas/chat-timely:latest
+    container_name: chat-timely
+    restart: always
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db-mariadb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://db-mariadb:3306/Timely?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=usuario
+      - SPRING_DATASOURCE_PASSWORD=usuario
+
+  fastapi-ml: 
+    image: endikaperezmas/fastapi-ml:latest
+    container_name: ml-timely
+    restart: always
+    ports:
+      - "8001:8001" 
+    depends_on:
+      - db-mariadb
+
+volumes:
+  mysql_data:

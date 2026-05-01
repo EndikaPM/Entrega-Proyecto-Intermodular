@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/registros") // Añadimos ruta base ¿¿¿¿Tiene sentido????
-@CrossOrigin(origins = "*")
 public class RegistroController {
 
     @Autowired

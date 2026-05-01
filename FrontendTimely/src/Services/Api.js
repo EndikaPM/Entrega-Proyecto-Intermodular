@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = "localhost";
+const host = "34.238.64.174";
 
 const Api = (port) => axios.create({
     baseURL: `http://${host}:${port}/api/v1`,

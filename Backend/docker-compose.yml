@@ -1,0 +1,52 @@
+services:
+  db-mariadb:
+    image: mariadb:10.6
+    container_name: mariadb-timely
+    restart: always
+    environment:
+      MYSQL_DATABASE: Timely
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: usuario
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d 
+
+  backend-timely: 
+    build: ./ProyectoTimely
+    container_name: main-timely
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db-mariadb
+    environment:
+      # Corregido a mariadb y al nuevo nombre del servicio
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://db-mariadb:3306/Timely?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=usuario
+      - SPRING_DATASOURCE_PASSWORD=usuario
+
+  backend-chat: 
+    build: ./Chat
+    container_name: chat-timely
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db-mariadb
+    environment:
+   
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://db-mariadb:3306/Timely?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=usuario
+      - SPRING_DATASOURCE_PASSWORD=usuario
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.mariadb.jdbc.Driver
+
+  fastapi-ml: 
+    build: ./ml-service/ml-regresion-python/
+    container_name: ml-timely
+    ports:
+      - "8001:8001" 
+    depends_on:
+      - db-mariadb
+volumes:
+  mysql_data:

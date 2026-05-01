@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-04-2026 a las 14:38:58
+-- Tiempo de generación: 01-05-2026 a las 11:43:31
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,16 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Ausencias`
+-- Estructura de tabla para la tabla `ausencias`
 --
 
-CREATE TABLE `Ausencias` (
+CREATE TABLE `ausencias` (
   `id` int(11) NOT NULL,
   `id_trabajador` char(9) NOT NULL,
   `dia_inicio_ausencia` date NOT NULL,
   `dia_fin_ausencia` date NOT NULL,
-  `motivo` enum('VACACIONES','DESCANSO','CITA_MEDICA','OTRAS') NOT NULL
-) ;
+  `motivo` enum('VACACIONES','DESCANSO','CITA_MEDICA','OTRAS') NOT NULL,
+  `descripcion` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ausencias`
+--
+
+INSERT INTO `ausencias` (`id`, `id_trabajador`, `dia_inicio_ausencia`, `dia_fin_ausencia`, `motivo`, `descripcion`) VALUES
+(1, '00000000O', '2026-04-03', '2026-04-03', 'CITA_MEDICA', 'Esto en una prueba');
 
 -- --------------------------------------------------------
 
@@ -55,7 +63,8 @@ INSERT INTO `departamento` (`id`, `nombre_depar`, `id_empresa`) VALUES
 (1, 'Insertado por la web', 'B12345678'),
 (10, 'Logistica', 'B12345678'),
 (11, 'ventas', 'B12345678'),
-(12, 'gestion', 'B12345678');
+(12, 'gestion', 'B12345678'),
+(13, 'Departamento desde React', 'G12345678H');
 
 -- --------------------------------------------------------
 
@@ -74,7 +83,8 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`nif`, `nombre_empre`, `direccion`) VALUES
-('B12345678', 'Inditex', 'c/ Inventada 1 2ºiz');
+('B12345678', 'Inditex', 'c/ Inventada 1 2ºiz'),
+('G12345678H', 'Empresa desde React', 'Direccion desde React , 1');
 
 -- --------------------------------------------------------
 
@@ -93,9 +103,9 @@ CREATE TABLE `horas_trabajo` (
 --
 
 INSERT INTO `horas_trabajo` (`id_usuario`, `horas_contrato`, `horas_trabajadas`) VALUES
-('00000000O', 1750.0, 9.3),
+('00000000O', 1750.0, 13.4),
 ('12345678C', 1065.6, 10.0),
-('52413669H', 1776.0, 14.0),
+('52413669H', 1776.0, 15.3),
 ('6541355L', 888.0, 8.0),
 ('78901234A', 1665.0, 14.0),
 ('90123456B', 1332.0, 12.0);
@@ -136,7 +146,11 @@ INSERT INTO `jornada` (`id`, `id_trabajador`, `fecha_actual`, `hora_entrada`, `h
 (30, '00000000O', '2026-03-28', '20:45:05', '21:36:08', 0),
 (33, '00000000O', '2026-03-29', '19:41:07', '23:00:00', 0),
 (34, '00000000O', '2026-03-30', '17:27:41', '19:27:12', 0),
-(35, '00000000O', '2026-03-31', '19:02:07', NULL, 0);
+(36, '00000000O', '2026-04-02', '13:33:43', '13:34:15', 0),
+(37, '00000000O', '2026-04-02', '13:40:20', '13:40:27', 0),
+(38, '00000000O', '2026-04-02', '18:54:49', '23:00:00', 0),
+(39, '52413669H', '2026-04-20', '12:54:38', '13:09:40', 0),
+(40, '6541355L', '2026-04-22', '12:08:41', NULL, 0);
 
 --
 -- Disparadores `jornada`
@@ -196,6 +210,32 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `mensajes`
+--
+
+CREATE TABLE `mensajes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `usuario_dni` char(9) NOT NULL,
+  `contenido` text NOT NULL,
+  `fecha_envio` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id`, `usuario_dni`, `contenido`, `fecha_envio`) VALUES
+(1, '00000000O', 'Hola Mundo!', '2026-04-01 17:36:11'),
+(2, '12345678C', 'Hola Admin', '2026-04-01 17:45:41'),
+(3, '00000000O', 'Hola Marta', '2026-04-01 17:45:46'),
+(4, '00000000O', 'Prueba desde React', '2026-04-01 21:03:54'),
+(5, '12345678C', 'Hola Grupo', '2026-04-01 21:44:46'),
+(6, '12345678C', 'Prueba desde una navegación privada', '2026-04-01 21:45:23'),
+(7, '52413669H', 'Hola', '2026-04-02 13:42:20');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `registro`
 --
 
@@ -245,20 +285,20 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`dni`, `first_name`, `last_name`, `email`, `password`, `birthday`, `contract_date`, `social_security`, `user_type`, `department`) VALUES
 ('00000000O', 'admin', 'administrador', 'admin@gmail.com', 'admin', '1999-08-25', '2022-11-10', '109876543210', 'Administrador', 12),
 ('12345678C', 'marta', 'lopez', 'marta.lopez@gmail.com', 'marta_l', '1999-08-25', '2022-11-10', '109876543210', 'Empleado', 10),
+('12345678K', 'Prueba', 'NADA', 'esto.es@unapruebba.com', '12345678', '2026-04-22', NULL, NULL, 'Empleado', 1),
 ('52413669H', 'usuario', 'prueba1', 'usuario.prueba1@gmail.com', 'usuario1', '2000-12-20', '2020-10-18', '412365478965', 'Empleado', 10),
 ('6541355L', '¡¡¡¡¡Editado!!!!!!', 'prueba2', 'usuario.prueba2@gmail.com', 'usuario2', '2000-12-20', '2020-10-18', '412365478965', 'Empleado', 11),
 ('78901234A', 'ana', 'garcia', 'ana.garcia@gmail.com', 'ana_g', '1995-05-15', '2021-03-01', '987654321012', 'Jefe', 10),
-('90123456B', 'luis', 'fernandez', 'luis.fernandez@gmail.com', 'luis_f', '1988-11-10', '2018-07-20', '543210987654', 'Empleado', 11),
-('95344886J', 'Fernando', 'Usero', 'fernando.userofuentes@iesvalleinclan.es', 'usuario', '1983-06-20', NULL, NULL, 'Empleado', 1);
+('90123456B', 'luis', 'fernandez', 'luis.fernandez@gmail.com', 'luis_f', '1988-11-10', '2018-07-20', '543210987654', 'Empleado', 11);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `Ausencias`
+-- Indices de la tabla `ausencias`
 --
-ALTER TABLE `Ausencias`
+ALTER TABLE `ausencias`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_trabajador` (`id_trabajador`);
 
@@ -289,6 +329,13 @@ ALTER TABLE `jornada`
   ADD KEY `fk_usuario` (`id_trabajador`);
 
 --
+-- Indices de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_mensaje_usuario` (`usuario_dni`);
+
+--
 -- Indices de la tabla `registro`
 --
 ALTER TABLE `registro`
@@ -309,22 +356,28 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `Ausencias`
+-- AUTO_INCREMENT de la tabla `ausencias`
 --
-ALTER TABLE `Ausencias`
+ALTER TABLE `ausencias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `jornada`
 --
 ALTER TABLE `jornada`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
@@ -337,10 +390,10 @@ ALTER TABLE `registro`
 --
 
 --
--- Filtros para la tabla `Ausencias`
+-- Filtros para la tabla `ausencias`
 --
-ALTER TABLE `Ausencias`
-  ADD CONSTRAINT `Ausencias_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `usuario` (`dni`);
+ALTER TABLE `ausencias`
+  ADD CONSTRAINT `ausencias_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `usuario` (`dni`);
 
 --
 -- Filtros para la tabla `departamento`
@@ -361,6 +414,12 @@ ALTER TABLE `horas_trabajo`
 --
 ALTER TABLE `jornada`
   ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`id_trabajador`) REFERENCES `usuario` (`dni`);
+
+--
+-- Filtros para la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD CONSTRAINT `fk_mensaje_usuario` FOREIGN KEY (`usuario_dni`) REFERENCES `usuario` (`dni`);
 
 --
 -- Filtros para la tabla `registro`

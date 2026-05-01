@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import JornadaService from '../Services/JornadaService.js';
 import Chat from '../Components/Chat.jsx';
 import ChatErrorBoundary from '../Components/ChatErrorBoundary.jsx';
+import { FaSignInAlt, FaSignOutAlt} from "react-icons/fa";
 
 
 function Dashboard() {
@@ -66,7 +67,7 @@ function Dashboard() {
             {/* Columna izquierda - 1/3 del espacio */}
             <div className="columna-izquierda">
                 <button className="boton-centro" onClick={ficharEntradaSalida}>
-                    {enLinea ? 'Fichar Salida' : 'Fichar Entrada'}
+                    {enLinea ? <><FaSignOutAlt /> Fichar Salida</> : <><FaSignInAlt /> Fichar Entrada</>}
                 </button>
             </div>
 
