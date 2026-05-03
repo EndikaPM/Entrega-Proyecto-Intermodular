@@ -17,7 +17,8 @@ function Chat() {
     const fallbackLogRef = useRef(new Set());
     const [nombreUsuario, setNombreUsuario] = useState({});
     const [chatDisponible, setChatDisponible] = useState(true);
-    const apiChat = Api(8082);
+    //const apiChat = Api(8082);
+    const apiChat = Api;
 
     const debugLog = (...args) => {
         if (!CHAT_DEBUG) return;

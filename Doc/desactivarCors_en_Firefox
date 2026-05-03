@@ -1,0 +1,13 @@
+La solución "Invisble" (Configuración avanzada)
+
+Si nada de lo anterior funciona, puedes decirle a Firefox que confíe en tu API de AWS manualmente:
+
+    En la barra de direcciones de Firefox escribe: about:config y pulsa Enter.
+
+    Haz clic en "Aceptar el riesgo y continuar".
+
+    Busca esta preferencia: security.mixed_content.block_active_content
+
+    Cambia el valor a false (haciendo doble clic).
+
+    ¡OJO!: Esto desactiva la seguridad para todo internet en tu navegador. Úsalo solo para probar y luego vuelve a ponerlo en true.

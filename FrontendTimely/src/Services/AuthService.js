@@ -1,6 +1,7 @@
 import Api from './Api';
 
-const api_auth = Api(8081);
+//const api_auth = Api(8081);
+const api_auth = Api;
 
 // Función para iniciar sesión
 const login = async (email, password) => {

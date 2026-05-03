@@ -1,6 +1,7 @@
 import Api from "./Api";
 
-const api_empresa = Api(8081);
+//const api_empresa = Api(8081);
+const api_empresa = Api;
 
 const EmpresaService = {
 

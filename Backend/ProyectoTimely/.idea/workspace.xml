@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7f6a942-5af7-4902-a9fb-d28e543b239a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Pages/Ausencias.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Pages/Ausencias.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Components/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Components/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Components/MlPredicion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Components/MlPredicion.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AusenciaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AusenciaService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/AuthService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/ChatService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/ChatService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/EmpresaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/EmpresaService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/JornadaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/JornadaService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/MlService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/MlService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FrontendTimely/src/Services/UsuarioService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FrontendTimely/src/Services/UsuarioService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +73,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/Backend/Chat",
+    "last_opened_file_path": "/home/endika/Entrega_proyectoIntermodular/Backend/ProyectoTimely",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
@@ -217,6 +227,11 @@
       <workItem from="1777624389374" duration="12000" />
       <workItem from="1777630416007" duration="27000" />
       <workItem from="1777630609928" duration="7274000" />
+      <workItem from="1777710011875" duration="3135000" />
+      <workItem from="1777718889175" duration="5000" />
+      <workItem from="1777723746357" duration="3264000" />
+      <workItem from="1777802990577" duration="1738000" />
+      <workItem from="1777832869782" duration="331000" />
     </task>
     <servers />
   </component>

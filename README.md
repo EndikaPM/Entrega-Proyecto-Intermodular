@@ -170,21 +170,20 @@ Abre tu navegador y ve a `http://localhost:5173`
 anteriores para editarlos
 - ✅ **Visualización de ausencias** - Vista de ausencias del equipo
 - ✅**Gestión Empresa y departamento** - Crear y editar empresas
+- ✅**Generar una predición de ausencias futuras** - con una fecha 
 ---
 
 ## 🚧 Funcionalidades Pendientes
 
-### **Sistema de Maching Learning**
-- ⏳**Generar una predición de ausencias futuras** - con una fecha 
 
 ### **Gestión de Ausencias**
-- ⏳ **Registro de ausencias** - Vacaciones, bajas, permisos
+- ⏳ **Registro de ausencias** (Subir a un servidor)- Vacaciones, bajas, permisos
 ### **Migración para facilitar el estilo**
 - ⏳ **Migrar de CSS a TailwinCSS** - Por ahora solo tengo en Fichages List pero quiero migrar toda la app
 
 ---
 ## 🐞 Problemas conocidos
-
+- **La generacion de tockens por parte de React**
 ---
 ## 👨‍💻 Autor
 

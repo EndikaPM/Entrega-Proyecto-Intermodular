@@ -1,6 +1,7 @@
 import Api from './Api';
 
-const api_jornada = Api(8081);
+//const api_jornada = Api(8081);
+const api_jornada = Api;
 
 const JornadaService = {
     // Obtener todos los fichajes

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Api from '../Services/Api';
 
-const api_ml = Api(8001);
+//const api_ml = Api(8001);
+const api_ml = Api;
 
 const MlPrediccion = () => {
     const [fecha,     setFecha]     = useState('');

@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/horas-trabajo")
+@CrossOrigin("*")
 public class HorasTrabajoController {
 
     @Autowired

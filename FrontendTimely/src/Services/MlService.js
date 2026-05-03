@@ -1,27 +1,13 @@
 import Api from "./Api";
 
-const api_ml = Api(8001);
+//const api_ml = Api(8001);
+const api_ml = Api;
 
 class MLService {
 
     static async predecirAusencias(fecha, umbral = 0.5) {
-        const response = await api_ml.post('/predecir-ausencias', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                fecha,
-                umbral,
-            }),
-        });
-
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.detail || 'Error al obtener predicciones');
-        }
-
-        return response.json();
+        const response = await api_ml.post('/predecir', { fecha, umbral });
+        return response.data;
     }
 
     /**

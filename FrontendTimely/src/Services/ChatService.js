@@ -1,6 +1,7 @@
 import Api from "./Api";
 
-const api_chat = Api(8082);
+//const api_chat = Api(8082);
+const api_chat = Api;
 
 const ChatService = {
 

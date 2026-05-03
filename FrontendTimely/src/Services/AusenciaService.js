@@ -1,6 +1,7 @@
 import Api from "./Api";
 
-const api_ausencia = Api(8081);
+//const api_ausencia = Api(8081);
+const api_ausencia = Api;
 
 const AusenciaService = {
 

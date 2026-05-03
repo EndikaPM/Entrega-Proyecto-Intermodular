@@ -15,10 +15,10 @@ public class Mensajes {
     private  Long id;
     @Column (name = "usuario_dni", length = 9, nullable = false)
     private String usuarioDni;
-    //El motor es "intelijente y si tienene el mismo nombre exacto los relaciona automaticamente
+
     @Column (columnDefinition = "TEXT", nullable = false)
     private String contenido;
-    //En los otros es camelCase a snake_case
+
     @Column(name = "fecha_envio", nullable = false, updatable = false)
     private LocalDateTime fechaEnvio;
 

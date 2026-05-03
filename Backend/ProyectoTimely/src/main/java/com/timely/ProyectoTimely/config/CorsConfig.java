@@ -14,21 +14,21 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // 1. Origen exacto de tu frontend (Vite suele ser 5173 o 5174)
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
+        config.setAllowedOrigins(Arrays.asList(
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://timely-app.duckdns.org",
+                "https://timely-app.duckdns.org",
+                "https://timely-d064b.web.app",
+                "https://timely-d064b.firebaseapp.com"
+        ));
 
-        // 2. Permitir que se envíen cookies o cabeceras de Auth
         config.setAllowCredentials(true);
-
-        // 3. Métodos permitidos
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
-        // 4. Cabeceras permitidas (importante añadir Content-Type para los JSON)
         config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-
         return new CorsFilter(source);
     }
 }
