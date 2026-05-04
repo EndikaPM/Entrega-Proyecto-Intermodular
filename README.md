@@ -173,7 +173,7 @@ anteriores para editarlos
 - ✅**Generar una predición de ausencias futuras** - con una fecha 
 ---
 
-## 🚧 Funcionalidades Pendientes
+## 🚧 Funcionalidades Pendientes a corto plazo
 
 
 ### **Gestión de Ausencias**
