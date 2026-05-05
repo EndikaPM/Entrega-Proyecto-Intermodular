@@ -24,13 +24,13 @@ public class UsuarioController {
     @Autowired
     private DepartamentoRepository departamentoRepository;
 
-    // GET /api/usuarios → Todos los usuarios
+    
     @GetMapping
     public List<Usuario> getAll() {
         return usuarioRepository.findAll();
     }
 
-    // GET /api/usuarios/52413669H → Un usuario por DNI
+    
     @GetMapping("/{dni}")
     public ResponseEntity<Usuario> getByDni(@PathVariable String dni) {
         Optional<Usuario> usuario = usuarioRepository.findById(dni);
@@ -40,7 +40,7 @@ public class UsuarioController {
         return ResponseEntity.notFound().build();
     }
 
-    // POST /api/usuarios → Crear usuario
+   
     @PostMapping
     public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
         if(usuario.getDepartamento() != null){
@@ -52,12 +52,12 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
     }
 
-    // PUT /api/usuarios/52413669H → Actualizar usuario
+    
     @PutMapping("/{dni}")
     public ResponseEntity<Usuario> update(@PathVariable String dni, @RequestBody Usuario usuarioNuevo) {
-        // Esto busca si el usuario original  exite en BD
+        
         return  usuarioRepository.findById(dni).map(usuarioExitente -> {
-            //Actualizar los campos que modificar
+            
             usuarioExitente.setFirstName(usuarioNuevo.getFirstName());
             usuarioExitente.setLastName(usuarioNuevo.getLastName());
             usuarioExitente.setEmail(usuarioNuevo.getEmail());
@@ -69,13 +69,13 @@ public class UsuarioController {
             usuarioExitente.setSocialSecurity(usuarioExitente.getSocialSecurity());
             usuarioExitente.setDepartamento(usuarioNuevo.getDepartamento());
 
-            //Aqí guardo lo modificado
+           
             Usuario actualizado = usuarioRepository.save(usuarioExitente);
-            return ResponseEntity.ok(actualizado);// genera un mensaje de Accion correcta
-        }).orElse(ResponseEntity.notFound().build());//genera un mensaje de no exixte el usuario
+            return ResponseEntity.ok(actualizado);
+        }).orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE /api/usuarios/52413669H → Eliminar usuario
+    
     @DeleteMapping("/{dni}")
     public ResponseEntity<Void> delete(@PathVariable String dni) {
         if (!usuarioRepository.existsById(dni)) {
