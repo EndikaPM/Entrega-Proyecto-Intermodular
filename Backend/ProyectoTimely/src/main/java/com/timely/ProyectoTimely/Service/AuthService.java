@@ -17,13 +17,6 @@ public class AuthService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    /**
-     * Autentica un usuario con email y contraseña.
-     *
-     * @param loginRequest Credenciales (email + password)
-     * @return LoginResponse con datos del usuario (sin password)
-     * @throws IllegalArgumentException si las credenciales son inválidas
-     */
 
     public LoginRespuestaDto autenticar(LoginRequisitoDto loginRequest){
 
@@ -61,10 +54,7 @@ public class AuthService {
         return response;
     }
 
-    /**
-     * Método auxiliar para verificar si un usuario existe por email.
-     * Útil para registros o validaciones.
-     */
+   
     public boolean existeUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email).isPresent();
     }
