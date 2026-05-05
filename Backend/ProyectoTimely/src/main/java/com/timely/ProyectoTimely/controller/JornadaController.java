@@ -31,13 +31,13 @@ public class JornadaController {
     private JornadaService jornadaService;
 
 
-    // GET /api/jornadas → Todas las jornadas
+    
     @GetMapping
     public List<Jornada> getAll() {
         return jornadaRepository.findAll();
     }
 
-    // GET /api/jornadas/15 → Una jornada por ID
+    
     @GetMapping("/{id}")
     public ResponseEntity<Jornada> getById(@PathVariable int id) {
         Optional<Jornada> jornada = jornadaRepository.findById(id);
