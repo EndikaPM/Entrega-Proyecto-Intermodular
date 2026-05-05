@@ -1,13 +1,6 @@
 package com.timely.ProyectoTimely.util;
 
-/**
- * Clase de utilidad para validar DNI/NIE españoles.
- *
- * Reutilizada de tu proyecto original — solo cambiamos el package.
- *
- * En Spring Boot, las clases de utilidad no necesitan ninguna anotación especial.
- * Son clases Java normales con métodos estáticos.
- */
+
 public class CheckDni {
 
     private static final String letrasOrdenadas = "TRWAGMYFPDXBNJZSQVHLCKE";
