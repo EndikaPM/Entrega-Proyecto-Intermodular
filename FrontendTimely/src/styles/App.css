@@ -1,4 +1,4 @@
-/* Variables para modo oscuro */
+
 .modo-oscuro {
     --bg-primary: #1a1a2e;
     --bg-secondary: #16213e;
@@ -10,7 +10,6 @@
     --bg-secondary-table: #1b5581;
 }
 
-/* Variables para modo claro */
 .modo-claro {
     --bg-primary: #f5f5f5;
     --bg-secondary: #ffffff;
@@ -22,14 +21,14 @@
     --bg-secondary-table: #a2c1c9;
 }
 
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos del contenedor principal */
+
 .app {
     width: 100%;
     min-height: 100vh;
@@ -43,15 +42,13 @@
 
 .main-container {
     width: 100%;
-    /* Este es el contenedor donde cambian las páginas */
-    /* Las páginas individuales controlan su propio layout */
 }
 
 .main-container-login {
     min-height: 100vh;
 }
 
-/* Scrollbar personalizado (modo oscuro) */
+
 .modo-oscuro ::-webkit-scrollbar {
     width: 10px;
 }
@@ -69,7 +66,7 @@
     background: #764ba2;
 }
 
-/* Scrollbar personalizado (modo claro) */
+
 .modo-claro ::-webkit-scrollbar {
     width: 10px;
 }
